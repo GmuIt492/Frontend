@@ -1,0 +1,11 @@
+INITIAL
+npm run build
+firebase init
+->y->hosting->exisiting->prod
+build
+->n->n
+firebase deploy
+
+CHANGES
+npm run build
+firebase deploy
