@@ -8,7 +8,7 @@ import GoogleMapApi from '../components/googleMapApi'
 class home extends Component {
     render() {
         return (
-            <div>
+            <div className="homepage">
                 <h1>Home page</h1>
                 <Slideshow/>
                 <Insurance/>

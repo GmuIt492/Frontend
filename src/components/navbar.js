@@ -10,13 +10,13 @@ class navbar extends Component {
     render() {
         return (
             <div className="navbar">
-                <AppBar position='sticky'>
+                <AppBar position='sticky' color='transparent'>
                     <Toolbar className="nav-container">
-                        <Button color="inherit" component={Link} to="/">Home</Button> | 
-                        <Button color="inherit" component={Link} to="/">Services</Button> | 
-                        <Button color="inherit" component={Link} to="/">Eye Conditions</Button> | 
-                        <Button color="inherit" component={Link} to="/">Appointments</Button> | 
-                        <Button color="inherit" component={Link} to="/">About</Button>
+                        <Button color="secondary" component={Link} to="/">Home</Button> | 
+                        <Button color="secondary" component={Link} to="/">Services</Button> | 
+                        <Button color="secondary" component={Link} to="/">Eye Conditions</Button> | 
+                        <Button color="secondary" component={Link} to="/">Appointments</Button> | 
+                        <Button color="secondary" component={Link} to="/">About</Button>
                         {/* <Button color="inherit" component={Link} to="/login">Login</Button> */}
                     </Toolbar>
                 </AppBar>
