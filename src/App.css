@@ -28,6 +28,16 @@ body{
     position: relative;
     color: black;
 }
+.googleApi {
+    margin: auto;
+    text-align: center;
+    position: relative;
+    padding: 10px;
+}
+.map {
+    overflow: hidden;
+    background: none !important;
+}
 @media (max-width:960px) {
     .homepage {
         color: blue;
