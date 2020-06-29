@@ -13,17 +13,17 @@ class footer extends Component {
                         <Grid container spacing={1}>
                             <Grid item xs={12} sm={4}>
                                 <Box p={2}>
-                                primary.main
+                                    Privacy Policy
                                 </Box>
                             </Grid>
                             <Grid item xs={12} sm={4}>
                                 <Box p={2}>
-                                primary.main
+                                    Contact
                                 </Box>
                             </Grid>
                             <Grid item xs={12} sm={4}>
                                 <Box p={2}>
-                                primary.main
+                                    Terms &amp; Conditions 
                                 </Box>
                             </Grid>
                         </Grid>
