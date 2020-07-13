@@ -14,6 +14,13 @@ export default  {
         }
     },
     typography: {
-        useNextVarients: true
+        fontFamily: [
+            // 'Futura','Helvetica','Arial','sans-serif'
+        ].join(','),
+        useNextVarients: true,
+        button: {
+            fontSize: "1.2em",
+            textTransform: "none"
+        }
     }
 }
