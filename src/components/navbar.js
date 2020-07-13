@@ -1,53 +1,36 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 
 //Material UI
 import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
 
 class navbar extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            scrollPosition: 0
-        };
-    }
-    componentDidMount() {
-        window.addEventListener('scroll', this.listenToScroll)
-    }
-    componentWillUnmount() {
-        window.removeEventListener('scroll', this.listenToScroll)
-    }
-    listenToScroll = () => {
-        const winScroll =
-            document.body.scrollTop || document.documentElement.scrollTop
+    // componentDidMount() {
+    //     window.addEventListener('scroll', this.listenToScroll)
+    // }
+    // componentWillUnmount() {
+    //     window.removeEventListener('scroll', this.listenToScroll)
+    // }
+    // listenToScroll = () => {
+    //     const winScroll =
+    //         document.body.scrollTop || document.documentElement.scrollTop
         
-        const height =
-            document.documentElement.scrollHeight -
-            document.documentElement.clientHeight
+    //     const height =
+    //         document.documentElement.scrollHeight -
+    //         document.documentElement.clientHeight
         
-        const scrolled = winScroll / height
+    //     const scrolled = winScroll / height
         
-        this.setState({
-            scrollPosition: scrolled,
-        })
-    }
-    changeOnScroll = () => {
-        if (this.scrollPosition < 0) {
-            return {
-            }
-        }
-        else {
-            return {}
-        }
-    }
+    //     this.setState({
+    //         scrollPosition: scrolled,
+    //     })
+    // }
     render() {
         return (
             <div className="navbar">
                 <AppBar position='sticky' color='transparent' elevation={0}>
-                    <div className="nav-logo" style={this.changeOnScroll}>
+                    <div className="nav-logo">
                         <Button color="secondary" component={Link} to="/" disableElevation="true"><h1>Everyday Eyecare</h1></Button>
                     </div>
                     <div className="nav-container">
@@ -63,8 +46,4 @@ class navbar extends Component {
     }
 }
 
-const mapStateToProps = state => ({  
-    nav:state.nav
-})
-
-export default connect(mapStateToProps)(navbar)
+export default navbar
