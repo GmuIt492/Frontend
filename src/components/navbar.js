@@ -6,31 +6,44 @@ import AppBar from '@material-ui/core/AppBar'
 import Button from '@material-ui/core/Button'
 
 class navbar extends Component {
-    // componentDidMount() {
-    //     window.addEventListener('scroll', this.listenToScroll)
-    // }
-    // componentWillUnmount() {
-    //     window.removeEventListener('scroll', this.listenToScroll)
-    // }
-    // listenToScroll = () => {
-    //     const winScroll =
-    //         document.body.scrollTop || document.documentElement.scrollTop
+    state = {
+        scrollPosition: null,
+        windowSize: null
+    }
+    componentDidMount() {
+        window.addEventListener('scroll', this.listenToScroll)
+        window.addEventListener('resize', this.listenToResize)
+    }
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.listenToScroll)
+        window.removeEventListener('resize', this.listenToResize)
+    }
+    listenToScroll = () => {
+        const winScroll =
+            document.body.scrollTop || document.documentElement.scrollTop
         
-    //     const height =
-    //         document.documentElement.scrollHeight -
-    //         document.documentElement.clientHeight
+        const height =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight
         
-    //     const scrolled = winScroll / height
+        const scrolled = winScroll / height
         
-    //     this.setState({
-    //         scrollPosition: scrolled,
-    //     })
-    // }
+        this.setState({
+            scrollPosition: scrolled,
+        })
+        // console.log(this.state.scrollPosition);
+    }
+    listenToResize = () => {
+        
+        // console.log(this.state.windowSize);
+    }
     render() {
+        let changeLogo = this.state.scrollPosition > 0.5 ? "none" : "";
+        let changeNav = this.state.scrollPosition > 0.5 ? 'primary' : 'transparent';
         return (
             <div className="navbar">
-                <AppBar position='sticky' color='transparent' elevation={0}>
-                    <div className="nav-logo">
+                <AppBar position='sticky' color={changeNav} elevation={0}>
+                    <div className="nav-logo" style={{display: changeLogo}}>
                         <Button color="secondary" component={Link} to="/" disableElevation="true"><h1>Everyday Eyecare</h1></Button>
                     </div>
                     <div className="nav-container">

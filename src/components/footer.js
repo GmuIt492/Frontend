@@ -9,7 +9,7 @@ class footer extends Component {
         return (
             <div className="footer">
                 <Grid item xs={12}>
-                    <Box bgcolor="primary.main" color="primary" p={2}>
+                    <Box bgcolor="primary.main" color="primary.contrastText" p={2}>
                         <Grid container spacing={1}>
                             <Grid item xs={12} sm={4}>
                                 <Box p={2}>
