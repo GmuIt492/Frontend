@@ -58,3 +58,9 @@ body{
         color: #1b1b1b;
     }
 }
+@media (max-width:500px) {
+    .menu-icon {
+        position: relative;
+        text-align: center;
+    }
+}

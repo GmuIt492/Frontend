@@ -79,7 +79,7 @@ class navbar extends Component {
                         <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                             <MenuIcon color="secondary" style={{fontSize:50,display:changeMenu}}/>
                         </Button>
-                        <Menu
+                        {/* <Menu
                             id="simple-menu"
                             anchorEl={this.state.anchorEl}
                             keepMounted
@@ -89,7 +89,7 @@ class navbar extends Component {
                             <MenuItem onClick={handleClose}>Profile</MenuItem>
                             <MenuItem onClick={handleClose}>My account</MenuItem>
                             <MenuItem onClick={handleClose}>Logout</MenuItem>
-                        </Menu>
+                        </Menu> */}
                     </div>
                     <div className="nav-container" style={{display:changeMenuItem}}>
                         <Button color="secondary" component={Link} to="/">Services</Button>
