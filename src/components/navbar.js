@@ -12,7 +12,8 @@ class navbar extends Component {
     state = { //initiate state variables
         scrollPosition: null,
         pageHeight: document.documentElement.clientHeight,
-        pageWidth: document.documentElement.clientWidth
+        pageWidth: document.documentElement.clientWidth,
+        anchorEl: null
     }
     componentDidMount() { //checks if user scrolls / resize
         window.addEventListener('scroll', this.listenToScroll)
@@ -37,7 +38,7 @@ class navbar extends Component {
         })
         // console.log(this.state.scrollPosition);
     }
-    listenToResize = () => {//method to set window size state variables
+    listenToResize = () => { //method to set window size state variables
         const height =
             document.documentElement.clientHeight;
         const width =
@@ -58,15 +59,38 @@ class navbar extends Component {
             changeMenu = "";
             changeMenuItem = "none";
         }
+        const handleClick = (event) => { //handle menu click when window resized
+            this.setState({
+                anchorEl: event.currentTarget
+            })
+        };
+        const handleClose = () => {
+            this.setState({
+                anchorEl: null
+            })
+        };
         return (
             <div className="navbar">
                 <AppBar position='sticky' color={changeNavBar} elevation={0}>
                     <div className="nav-logo" style={{display:changeLogo}}> 
-                        <Button color="secondary" component={Link} to="/" disableElevation="true"><h1>Everyday Eyecare</h1></Button>
+                        <Button color="secondary" component={Link} to="/"><h1>Everyday Eyecare</h1></Button>
                     </div>
-                    <MenuIcon color="secondary" className="menu-icon" style={{fontSize:50,display:changeMenu}}>
-                        <Button/>
-                    </MenuIcon>
+                    <div className="menu-icon">
+                        <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+                            <MenuIcon color="secondary" style={{fontSize:50,display:changeMenu}}/>
+                        </Button>
+                        <Menu
+                            id="simple-menu"
+                            anchorEl={this.state.anchorEl}
+                            keepMounted
+                            open={Boolean(this.state.anchorEl)}
+                            onClose={handleClose}
+                        >
+                            <MenuItem onClick={handleClose}>Profile</MenuItem>
+                            <MenuItem onClick={handleClose}>My account</MenuItem>
+                            <MenuItem onClick={handleClose}>Logout</MenuItem>
+                        </Menu>
+                    </div>
                     <div className="nav-container" style={{display:changeMenuItem}}>
                         <Button color="secondary" component={Link} to="/">Services</Button>
                         <Button color="secondary" component={Link} to="/">Eye Conditions</Button>

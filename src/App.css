@@ -22,7 +22,6 @@ body{
 }
 .menu-icon {
     position:absolute;
-    padding: 8px;
 }
 .header {
     background: transparent url(assets/img/header.png) no-repeat;
