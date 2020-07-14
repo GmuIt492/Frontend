@@ -15,10 +15,11 @@ export default  {
     },
     typography: {
         fontFamily: [
-            // 'Futura','Helvetica','Arial','sans-serif'
+            'Futura'
         ].join(','),
         useNextVarients: true,
         button: {
+            lineHeight: 0,
             fontSize: "1.2em",
             textTransform: "none"
         }

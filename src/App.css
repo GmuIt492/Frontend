@@ -1,11 +1,10 @@
 html,
 body{
-    /* font-family: 'Futura','Helvetica','Arial','sans-serif'; */
+    font-family: 'Futura';
     margin: 0px
 }
 .nav-logo {
     margin: auto;
-    /* display: none; */
 }
 .nav-container {
     margin: auto;
