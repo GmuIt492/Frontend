@@ -6,7 +6,10 @@ import AppBar from '@material-ui/core/AppBar'
 import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+
+//Material UI Icon
 import MenuIcon from '@material-ui/icons/Menu';
+import PhoneIcon from '@material-ui/icons/Phone';
 
 class navbar extends Component {
     state = { //initiate state variables
@@ -90,6 +93,9 @@ class navbar extends Component {
                             <MenuItem onClick={handleClose}>My account</MenuItem>
                             <MenuItem onClick={handleClose}>Logout</MenuItem>
                         </Menu> */}
+                    </div>
+                    <div className="menu-contact">
+                        <Button color="secondary"><PhoneIcon style={{paddingRight:"5px"}}/>703.764.2015</Button>
                     </div>
                     <div className="nav-container" style={{display:changeMenuItem}}>
                         <Button color="secondary" component={Link} to="/">Services</Button>

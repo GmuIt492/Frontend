@@ -16,6 +16,8 @@ import Footer from './components/footer'
 
 //pages
 import home from './pages/home';
+import privacyPolicy from './pages/privacyPolicy';
+import termCondition from './pages/termCondition';
 import login from './pages/login';
 
 //util
@@ -33,6 +35,8 @@ class App extends Component {
                         <Navbar/>
                         <Switch>
                             <Route exact path='/' component={home}/>
+                            <Route exact path='/privacyPolicy' component={privacyPolicy}/>
+                            <Route exact path='/termCondition' component={termCondition}/>
                             <Route exact path='/login' component={login}/>
                         </Switch>
                         <Footer/>
