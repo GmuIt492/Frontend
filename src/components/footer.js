@@ -20,7 +20,7 @@ class footer extends Component {
                             </Grid>
                             <Grid item xs={12} sm={4}>
                                 <Box p={2}>
-                                    Contact
+                                    <Button color="secondary" component={Link} to="/contact">Contact</Button>
                                 </Box>
                             </Grid>
                             <Grid item xs={12} sm={4}>

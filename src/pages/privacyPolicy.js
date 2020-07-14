@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-//components
-
 class privacyPolicy extends Component {
     render() {
         return (

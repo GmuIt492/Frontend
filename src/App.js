@@ -17,6 +17,7 @@ import Footer from './components/footer'
 //pages
 import home from './pages/home';
 import privacyPolicy from './pages/privacyPolicy';
+import contact from './pages/contact';
 import termCondition from './pages/termCondition';
 import login from './pages/login';
 
@@ -36,6 +37,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path='/' component={home}/>
                             <Route exact path='/privacyPolicy' component={privacyPolicy}/>
+                            <Route exact path='/contact' component={contact}/>
                             <Route exact path='/termCondition' component={termCondition}/>
                             <Route exact path='/login' component={login}/>
                         </Switch>
