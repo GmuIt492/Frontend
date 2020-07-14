@@ -13,12 +13,24 @@ class header extends Component {
         })
         // console.log(this.state.pathLink);
     }
+    switchMotto(path) {
+        switch(path) {
+            case "/privacyPolicy":
+                return "Privacy Policy";
+            case "/contact":
+                return "Contact";
+            case "/termCondition":
+                return "Terms & Conditions";
+            default:
+                return "Your Eyes. Our Passion.";
+        }
+    }
     render() {
         let changeHeader = this.state.pathLink === "/" ? "800px" : "400px";
-        let changeMotto = this.state.pathLink === "/" ? "400px" : "200px";
+        let changeMotto = this.state.pathLink === "/" ? "600px" : "250px";
         return (
             <div className="header" style={{height:changeHeader}}>
-                <h2 className="header-motto" style={{padding:changeMotto}}>Your Eyes. Our Passion.</h2>
+                <h2 className="header-motto" style={{paddingTop:changeMotto}}>{this.switchMotto(this.state.pathLink)}</h2>
             </div>
         )
     }

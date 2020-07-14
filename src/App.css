@@ -41,7 +41,9 @@ a {
     width: 100%;
 }
 .header-motto {
+    position: absolute;
     text-align: center;
+    width: 100%;
     margin: auto;
     color: white;
 }
@@ -70,17 +72,27 @@ a {
     background: none !important;
 }
 .privacyPolicy {
-    margin: 50px 300px 50px 300px;
+    width: 90%;
+    max-width: 700px;
+    margin: 100px auto 100px auto;
+    line-height: 24px;
 }
 .contact {
-    margin: 50px 300px 50px 300px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 100px auto 100px auto;
+    line-height: 24px;
 }
 .contact-card {
-    margin: 30px;
+    margin: 10px;
+    height: 175px;
     text-align: center;
 }
 .termCondition {
-    margin: 50px 300px 50px 300px;
+    width: 90%;
+    max-width: 700px;
+    margin: 100px auto 100px auto;
+    line-height: 24px;
 }
 @media (max-width:500px) {
     .navbar {
