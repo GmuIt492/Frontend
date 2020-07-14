@@ -20,6 +20,10 @@ body{
 .navbar:hover {
     background-color: #1b1b1b;
 }
+.menu-icon {
+    position:absolute;
+    padding: 8px;
+}
 .header {
     background: transparent url(assets/img/header.png) no-repeat;
     position: relative;
@@ -52,6 +56,6 @@ body{
 }
 @media (max-width:1000px) {
     .homepage {
-        color: blue;
+        color: #1b1b1b;
     }
 }
