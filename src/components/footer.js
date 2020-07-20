@@ -15,17 +15,17 @@ class footer extends Component {
                         <Grid container spacing={1}>
                             <Grid item xs={12} sm={4}>
                                 <Box p={2}>
-                                    <Button color="secondary" component={Link} to="/privacyPolicy">Privacy Policy</Button>
+                                    <Button color="secondary" component={Link} to="/privacyPolicy"><h4>Privacy Policy</h4></Button>
                                 </Box>
                             </Grid>
                             <Grid item xs={12} sm={4}>
                                 <Box p={2}>
-                                    <Button color="secondary" component={Link} to="/contact">Contact</Button>
+                                    <Button color="secondary" component={Link} to="/contact"><h4>Contact</h4></Button>
                                 </Box>
                             </Grid>
                             <Grid item xs={12} sm={4}>
                                 <Box p={2}>
-                                    <Button color="secondary" component={Link} to="/termCondition">Terms &amp; Conditions</Button>
+                                    <Button color="secondary" component={Link} to="/termCondition"><h4>Terms &amp; Conditions</h4></Button>
                                 </Box>
                             </Grid>
                         </Grid>

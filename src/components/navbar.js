@@ -95,13 +95,13 @@ class navbar extends Component {
                         </Menu> */}
                     </div>
                     <div className="menu-contact">
-                        <Button color="secondary"><PhoneIcon style={{paddingRight:"5px"}}/>703.764.2015</Button>
+                        <Button color="secondary"><PhoneIcon style={{paddingRight:"5px"}}/><a href="tel:7037642015">703.764.2015</a></Button>
                     </div>
                     <div className="nav-container" style={{display:changeMenuItem}}>
-                        <Button color="secondary" component={Link} to="/">Services</Button>
-                        <Button color="secondary" component={Link} to="/">Eye Conditions</Button>
-                        <Button color="secondary" component={Link} to="/">Appointments</Button> 
-                        <Button color="secondary" component={Link} to="/">About</Button>
+                        <Button color="secondary" component={Link} to="/"><h4>Services</h4></Button>
+                        <Button color="secondary" component={Link} to="/"><h4>Eye Conditions</h4></Button>
+                        <Button color="secondary" component={Link} to="/"><h4>Appointments</h4></Button> 
+                        <Button color="secondary" component={Link} to="/"><h4>About</h4></Button>
                         {/* <Button color="inherit" component={Link} to="/login">Login</Button> */}
                     </div>
                 </AppBar>

@@ -22,7 +22,7 @@ class contact extends Component {
                                     General Inquries
                                 </Typography>
                                 <Typography variant="body2" component="p">
-                                    Phone: <a href="tel:+7037642015">703.764.2015</a>
+                                    Phone: <a href="tel:7037642015">703.764.2015</a>
                                 </Typography>
                                 <Typography variant="body2" component="p">
                                     Fax: <a href="tel:+7035034482">703.503.4482</a>
