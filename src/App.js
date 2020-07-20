@@ -13,6 +13,7 @@ import './App.css';
 import Navbar from './components/navbar'
 import Header from './components/header'
 import Footer from './components/footer'
+import ScrollToTop from './components/scrollToTop';
 
 //pages
 import home from './pages/home';
@@ -34,13 +35,15 @@ class App extends Component {
                     <Router>
                         <Header/>
                         <Navbar/>
-                        <Switch>
-                            <Route exact path='/' component={home}/>
-                            <Route exact path='/privacyPolicy' component={privacyPolicy}/>
-                            <Route exact path='/contact' component={contact}/>
-                            <Route exact path='/termCondition' component={termCondition}/>
-                            <Route exact path='/login' component={login}/>
-                        </Switch>
+                        <ScrollToTop>
+                            <Switch>
+                                <Route exact path='/' component={home}/>
+                                <Route exact path='/privacyPolicy' component={privacyPolicy}/>
+                                <Route exact path='/contact' component={contact}/>
+                                <Route exact path='/termCondition' component={termCondition}/>
+                                <Route exact path='/login' component={login}/>
+                            </Switch>
+                        </ScrollToTop>
                         <Footer/>
                     </Router>
                 </div>
