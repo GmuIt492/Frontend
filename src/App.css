@@ -30,6 +30,20 @@ a {
 .navbar:hover {
     background-color: #1b1b1b;
 }
+.feedbackTitle {
+    text-align: center;
+}
+.closeButton {
+    position: 'relative';
+    left: '90%';
+    top: '10%';
+}
+.submitButton {
+    position: 'relative';
+}
+.progressSpinner {
+    position: 'absolute';
+}
 .menu-icon {
     position:absolute;
 }

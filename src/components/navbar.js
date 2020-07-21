@@ -105,7 +105,7 @@ class navbar extends Component {
                         <Button color="secondary" component={Link} to="/"><h4>Eye Conditions</h4></Button>
                         <Button color="secondary" component={Link} to="/"><h4>Appointments</h4></Button> 
                         <Button color="secondary" component={Link} to="/"><h4>About</h4></Button>
-                        {/* <Feedback/> */}
+                        <Feedback/>
                         {/* <Button color="inherit" component={Link} to="/login">Login</Button> */}
                     </div>
                 </AppBar>

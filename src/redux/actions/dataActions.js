@@ -19,10 +19,10 @@ export const getPosts = () => (dispatch) => {
     })
 }
 
-//posting
-export const postAction = (newPost) =>  (dispatch) => {
+//create feedback
+export const feedbackAction = (newFeedback) => (dispatch) => {
     dispatch({ type: LOADING_UI});
-    axios.post('/post',newPost)
+    axios.post('/feedback',newFeedback)
         .then((result) => {
             dispatch({
                 type: POSTING,

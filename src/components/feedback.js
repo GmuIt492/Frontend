@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import withStyles from '@material-ui/core/styles/withStyles';
 
 //material ui components
 import Button from '@material-ui/core/Button';
@@ -11,24 +10,10 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 //redux
 import { connect } from 'react-redux';
-import { postAction } from '../redux/actions/dataActions';
+import { feedbackAction } from '../redux/actions/dataActions';
 
 //material ui icons
 import CloseIcon from '@material-ui/icons/Close';
-
-const styles = {
-    submitButton: {
-        position: 'relative'
-    },
-    progressSpinner: {
-        position: 'absolute'
-    },
-    closeButton: {
-        position: 'relative',
-        left: '90%',
-        top: '10%'
-    }
-}
 
 class feedback extends Component{
     state = {
@@ -42,7 +27,7 @@ class feedback extends Component{
                 errors: nextProps.UI.errors
             });
         };
-        if(!nextProps.UI.errors && !nextProps.UI.loading){
+        if(!nextProps.UI.errors){
             this.setState({ body: '' });
             this.handleClose();
         }
@@ -58,18 +43,17 @@ class feedback extends Component{
     }
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.postAction({ body: this.state.body })
+        this.props.feedbackAction({ body: this.state.body })
     }
     render(){
         const { errors } = this.state;
         const {
-            classes,
-            UI: { loading }
+            classes
         } = this.props;
         return (
             <>
-                <Button color="inherit" onClick={this.handleOpen} tip='Post'>
-                    Post
+                <Button color="secondary" onClick={this.handleOpen} tip='Post'>
+                    <h4>Post</h4>
                 </Button>
                 <Dialog
                     open={this.state.open}
@@ -79,11 +63,11 @@ class feedback extends Component{
                     <Button
                         tip="Close"
                         onClick={this.handleClose}
-                        tipClassName={classes.closeButton}
+                        className="closeButton"
                     >
                         <CloseIcon/>
                     </Button>
-                    <h3 class="center">Leave An Opinion Or Anything About Your Experience!</h3>
+                    <h3 className="feedbackTitle">Leave An Opinion Or Anything About Your Experience!</h3>
                     <DialogContent>
                         <form onSubmit={this.handleSubmit}>
                             <TextField
@@ -91,10 +75,9 @@ class feedback extends Component{
                                 type="text"
                                 multiline
                                 rows="4"
-                                placeholder="Hello there"
+                                placeholder="Everyday Eyecare Is The Best!"
                                 error={errors.body ? true : false}
                                 helperText={errors.body}
-                                className={classes.textField}
                                 onChange={this.handleChange}
                                 fullWidth
                             />
@@ -103,11 +86,11 @@ class feedback extends Component{
                                 type="submit"
                                 variant="contained"
                                 color="primary"
-                                className={classes.submitButton} disabled={loading}
+                                className="submitButton"
                             >
-                                Submit
-                                {loading && (
-                                    <CircularProgress size={30} className={classes.progressSpinner}/>
+                                Send Feedback
+                                {(
+                                    <CircularProgress size={30} className="progressSpinner"/>
                                 )}
                             </Button>
                         </form>
@@ -119,7 +102,7 @@ class feedback extends Component{
 }
 
 feedback.propTypes = {
-    postAction: PropTypes.func.isRequired,
+    feedbackAction: PropTypes.func.isRequired,
     UI: PropTypes.object.isRequired
 };
 
@@ -127,4 +110,4 @@ const mapStateToProps = (state) => ({
     UI: state.UI
 })
 
-export default connect(mapStateToProps,{ postAction })(withStyles(styles)(feedback))
+export default connect(mapStateToProps,{feedbackAction})(feedback)
