@@ -12,7 +12,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import PhoneIcon from '@material-ui/icons/Phone';
 
 //components
-// import Feedback from './feedback.js';
+import Feedback from './feedback.js';
 
 class navbar extends Component {
     state = { //initiate state variables
