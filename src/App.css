@@ -70,6 +70,10 @@ a {
     position: relative;
     padding: 10px;
 }
+.partnerLogo {
+    max-width: 150px;
+    max-height: 50px;
+}
 .map {
     overflow: hidden;
     background: none !important;

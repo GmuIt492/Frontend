@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-//components
-
 class termCondition extends Component {
     render() {
         return (

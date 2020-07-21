@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
-//Material UI
+//material ui components
 import AppBar from '@material-ui/core/AppBar'
 import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-//Material UI Icon
+//material ui icons
 import MenuIcon from '@material-ui/icons/Menu';
 import PhoneIcon from '@material-ui/icons/Phone';
+
+//components
+// import Feedback from './feedback.js';
 
 class navbar extends Component {
     state = { //initiate state variables
@@ -82,7 +85,7 @@ class navbar extends Component {
                         <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                             <MenuIcon color="secondary" style={{fontSize:50,display:changeMenu}}/>
                         </Button>
-                        {/* <Menu
+                        <Menu
                             id="simple-menu"
                             anchorEl={this.state.anchorEl}
                             keepMounted
@@ -92,7 +95,7 @@ class navbar extends Component {
                             <MenuItem onClick={handleClose}>Profile</MenuItem>
                             <MenuItem onClick={handleClose}>My account</MenuItem>
                             <MenuItem onClick={handleClose}>Logout</MenuItem>
-                        </Menu> */}
+                        </Menu>
                     </div>
                     <div className="menu-contact">
                         <Button color="secondary"><PhoneIcon style={{paddingRight:"5px"}}/><a href="tel:7037642015">703.764.2015</a></Button>
@@ -102,6 +105,7 @@ class navbar extends Component {
                         <Button color="secondary" component={Link} to="/"><h4>Eye Conditions</h4></Button>
                         <Button color="secondary" component={Link} to="/"><h4>Appointments</h4></Button> 
                         <Button color="secondary" component={Link} to="/"><h4>About</h4></Button>
+                        {/* <Feedback/> */}
                         {/* <Button color="inherit" component={Link} to="/login">Login</Button> */}
                     </div>
                 </AppBar>
