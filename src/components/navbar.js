@@ -56,8 +56,8 @@ class navbar extends Component {
         // console.log(this.state.pageWidth);
     }
     render() {
-        let changeLogo = this.state.scrollPosition > 0.5 ? "none" : ""; //removes logo base on scroll position
-        let changeNavBar = this.state.scrollPosition > 0.5 ? 'primary' : 'transparent'; //change navbar color base on scroll position
+        let changeLogo = this.state.scrollPosition > 0.4 ? "none" : ""; //removes logo base on scroll position
+        let changeNavBar = this.state.scrollPosition > 0.4 ? 'primary' : 'transparent'; //change navbar color base on scroll position
         let changeMenu = "none"; //initiate menu to resize
         let changeMenuItem = ""; //initiate menu items to resize
         if (this.state.pageWidth < 1000) { //if window size is reduced, display logo and change menu
