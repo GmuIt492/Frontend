@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import withStyles from '@material-ui/core/styles/withStyles';
 
 //material ui components
 import Button from '@material-ui/core/Button';
@@ -12,8 +13,22 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { connect } from 'react-redux';
 import { feedbackAction } from '../redux/actions/dataActions';
 
-//material ui icons
+//icons
 import CloseIcon from '@material-ui/icons/Close';
+
+const styles = {
+    submitButton: {
+        position: 'relative'
+    },
+    progressSpinner: {
+        position: 'absolute'
+    },
+    closeButton: {
+        position: 'relative',
+        left: '90%',
+        top: '10%'
+    }
+}
 
 class feedback extends Component{
     state = {
@@ -27,7 +42,7 @@ class feedback extends Component{
                 errors: nextProps.UI.errors
             });
         };
-        if(!nextProps.UI.errors){
+        if(!nextProps.UI.errors && !nextProps.UI.loading){
             this.setState({ body: '' });
             this.handleClose();
         }
@@ -48,12 +63,13 @@ class feedback extends Component{
     render(){
         const { errors } = this.state;
         const {
-            classes
+            classes,
+            UI: { loading }
         } = this.props;
         return (
             <>
                 <Button color="secondary" onClick={this.handleOpen} tip='Post'>
-                    <h4>Post</h4>
+                    <h4>Feedback</h4>
                 </Button>
                 <Dialog
                     open={this.state.open}
@@ -63,7 +79,7 @@ class feedback extends Component{
                     <Button
                         tip="Close"
                         onClick={this.handleClose}
-                        className="closeButton"
+                        tipClassName={classes.closeButton}
                     >
                         <CloseIcon/>
                     </Button>
@@ -78,6 +94,7 @@ class feedback extends Component{
                                 placeholder="Everyday Eyecare Is The Best!"
                                 error={errors.body ? true : false}
                                 helperText={errors.body}
+                                className={classes.textField}
                                 onChange={this.handleChange}
                                 fullWidth
                             />
@@ -86,11 +103,11 @@ class feedback extends Component{
                                 type="submit"
                                 variant="contained"
                                 color="primary"
-                                className="submitButton"
+                                className={classes.submitButton} disabled={loading}
                             >
-                                Send Feedback
-                                {(
-                                    <CircularProgress size={30} className="progressSpinner"/>
+                                <h4>Send Feedback</h4>
+                                {loading && (
+                                    <CircularProgress size={30} className={classes.progressSpinner}/>
                                 )}
                             </Button>
                         </form>
@@ -110,4 +127,4 @@ const mapStateToProps = (state) => ({
     UI: state.UI
 })
 
-export default connect(mapStateToProps,{feedbackAction})(feedback)
+export default connect(mapStateToProps,{ feedbackAction })(withStyles(styles)(feedback))

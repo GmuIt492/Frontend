@@ -31,6 +31,7 @@ import login from './pages/login';
 import themeFile from './util/theme';
 
 axios.defaults.baseURL = "https://us-central1-everyday-eyecare.cloudfunctions.net/api";
+// axios.defaults.baseURL = "http://localhost:5000/everyday-eyecare/us-central1/api";
 
 const theme = createMuiTheme(themeFile);
 
