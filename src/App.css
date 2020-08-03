@@ -2,7 +2,7 @@ html,
 body {
     font-family: 'Roboto';
     margin: 0px;
-    font-size: 14px;
+    font-size: 16px;
     text-align: justify;
 }
 h4 {
@@ -42,9 +42,10 @@ a {
     padding: 12px;
 }
 .header {
-    background: transparent url(assets/img/header.png) no-repeat;
+    background: transparent url(assets/img/header.png) center no-repeat;
     position: relative;
     width: 100%;
+    background-size: cover;
 }
 .header-motto {
     position: absolute;

@@ -102,8 +102,18 @@ class navbar extends Component {
                     </div>
                     <div className="nav-container" style={{display:changeMenuItem}}>
                         <Button color="secondary" component={Link} to="/"><h4>Services</h4></Button>
-                        <Button color="secondary" component={Link} to="/"><h4>Eye Conditions</h4></Button>
-                        <Button color="secondary" component={Link} to="/"><h4>Appointments</h4></Button> 
+                        <Button color="secondary" aria-controls="appointment-menu" aria-haspopup="true" onClick={handleClick}><h4>Appointments</h4></Button>
+                        <Menu
+                            id="appointment-menu"
+                            anchorEl={this.state.anchorEl}
+                            keepMounted
+                            open={Boolean(this.state.anchorEl)}
+                            onClose={handleClose}
+                        >
+                            <MenuItem onClick={handleClose}>Profile</MenuItem>
+                            <MenuItem onClick={handleClose}>My account</MenuItem>
+                            <MenuItem onClick={handleClose}>Logout</MenuItem>
+                        </Menu>
                         <Button color="secondary" component={Link} to="/"><h4>About</h4></Button>
                         <Feedback/>
                         {/* <Button color="inherit" component={Link} to="/login">Login</Button> */}
