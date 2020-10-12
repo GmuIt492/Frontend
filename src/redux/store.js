@@ -9,7 +9,7 @@ import uiReducer from './reducers/uiReducer';
 //initialize
 const initialState = {};
 const middleware = [thunk];
-console.log(middleware);
+// console.log(middleware);
 
 //combine reducer files
 const reducers = combineReducers({

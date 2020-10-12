@@ -79,7 +79,7 @@ class feedback extends Component{
                     <Button
                         tip="Close"
                         onClick={this.handleClose}
-                        tipClassName={classes.closeButton}
+                        tipclassname={classes.closeButton}
                     >
                         <CloseIcon/>
                     </Button>

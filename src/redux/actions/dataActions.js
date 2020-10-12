@@ -21,7 +21,7 @@ export const getPosts = () => (dispatch) => {
 
 //create feedback
 export const feedbackAction = (newFeedback) => (dispatch) => {
-    console.log(newFeedback);
+    // console.log(newFeedback);
     dispatch({ type: LOADING_UI});
     axios.post('/feedback',newFeedback)
         .then((result) => {
