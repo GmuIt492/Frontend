@@ -31,11 +31,14 @@ const styles = {
 }
 
 class feedback extends Component{
+    //initialize state variables
     state = {
         open:false,
         body: '',
         errors: {}
     };
+
+    //listen for feedback change
     componentWillReceiveProps(nextProps){
         if(nextProps.UI.errors){
             this.setState({
@@ -47,19 +50,29 @@ class feedback extends Component{
             this.handleClose();
         }
     };
+
+    //on feedback popup open
     handleOpen = () => {
         this.setState({ open: true })
     };
+
+    //on feedback popup close
     handleClose = () => {
         this.setState({ open: false, errors:{} })
     };
+
+    //on feedback content change
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value })
     }
+
+    //on feedback content submit
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.feedbackAction({ body: this.state.body })
     }
+
+    //render feedback popup
     render(){
         const { errors } = this.state;
         const {

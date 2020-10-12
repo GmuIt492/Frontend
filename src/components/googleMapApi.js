@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 class googleMapApi extends Component {
+    //render google map function
     render() {
         return (
             <div className="googleApi">

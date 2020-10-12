@@ -15,7 +15,8 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import Feedback from './feedback.js';
 
 class navbar extends Component {
-    state = { //initiate state variables
+    //initialize state variables
+    state = {
         scrollPosition: null,
         pageHeight: document.documentElement.clientHeight,
         pageWidth: document.documentElement.clientWidth,
@@ -55,6 +56,8 @@ class navbar extends Component {
         })
         // console.log(this.state.pageWidth);
     }
+
+    //render navigation bar
     render() {
         let changeLogo = this.state.scrollPosition > 0.4 ? "none" : ""; //removes logo base on scroll position
         let changeNavBar = this.state.scrollPosition > 0.4 ? 'primary' : 'transparent'; //change navbar color base on scroll position

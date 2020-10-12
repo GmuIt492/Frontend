@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 class insurance extends Component {
+    //render insurance section
     render() {
         return (
             <div className="insurance">

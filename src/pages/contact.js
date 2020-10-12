@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 class contact extends Component {
+    //render contact page
     render() {
         return (
             <div className="contact">

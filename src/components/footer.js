@@ -7,6 +7,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button'
 
 class footer extends Component {
+    //render footer links
     render() {
         return (
             <div className="footer">

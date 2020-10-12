@@ -8,9 +8,12 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 class privacyPolicy extends Component {
-    state = { //initiate state variables
+    //initialize state variables
+    state = {
         expanded: null,
     }
+
+    //render privacy policy page
     render() {
         const handleChange = (panel) => (event, isExpanded) => { //handle expanded panel open/close
             this.setState({

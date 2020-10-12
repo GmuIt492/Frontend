@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 class termCondition extends Component {
+    //render terms and conditions page
     render() {
         return (
             <div className="termCondition">
