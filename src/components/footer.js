@@ -29,7 +29,7 @@ class footer extends Component {
                                 </Box>
                             </Grid>
                         </Grid>
-                        © 2007 Everyday Eyecare, Inc. All rights reserved.
+                        © 2020 Everyday Eyecare, Inc. All rights reserved.
                     </Box>
                 </Grid>
             </div>

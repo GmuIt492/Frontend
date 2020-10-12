@@ -6,10 +6,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-//logo img
-import rudy from '../assets/img/rudy_project_logo.png';
-import eschenbach from '../assets/img/eschenbach_logo.png';
-
 class insurance extends Component {
     render() {
         return (
