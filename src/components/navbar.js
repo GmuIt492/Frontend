@@ -22,15 +22,21 @@ class navbar extends Component {
         pageWidth: document.documentElement.clientWidth,
         anchorEl: null
     }
-    componentDidMount() { //checks if user scrolls / resize
+
+    //listen for user scrolls / resize
+    componentDidMount() {
         window.addEventListener('scroll', this.listenToScroll)
         window.addEventListener('resize', this.listenToResize)
     }
+
+    //listen for user scrolls / resize
     componentWillUnmount() {
         window.removeEventListener('scroll', this.listenToScroll)
         window.removeEventListener('resize', this.listenToResize)
     }
-    listenToScroll = () => { //method to set scroll position state variable
+
+    //method to set scroll position state variable
+    listenToScroll = () => {
         const winScroll =
             document.body.scrollTop || document.documentElement.scrollTop
         
@@ -45,7 +51,9 @@ class navbar extends Component {
         })
         // console.log(this.state.scrollPosition);
     }
-    listenToResize = () => { //method to set window size state variables
+
+    //method to set window size state variables
+    listenToResize = () => {
         const height =
             document.documentElement.clientHeight;
         const width =
@@ -68,11 +76,15 @@ class navbar extends Component {
             changeMenu = "";
             changeMenuItem = "none";
         }
-        const handleClick = (event) => { //handle menu click when window resized
+
+        //handle menu click when window resized
+        const handleClick = (event) => {
             this.setState({
                 anchorEl: event.currentTarget
             })
         };
+
+        //handle menu click when window resized
         const handleClose = () => {
             this.setState({
                 anchorEl: null
