@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 
 //redux
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { SET_AUTHENTICATED } from './redux/types';
+import { logoutUser, getUserData } from './redux/actions/userActions';
 
 //material ui components
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
@@ -37,7 +39,22 @@ axios.defaults.baseURL = "https://us-central1-everyday-eyecare.cloudfunctions.ne
 
 const theme = createMuiTheme(themeFile);
 
-store.dispatch({ type: SET_AUTHENTICATED });
+//checks login status
+const token = localStorage.FBIdToken;
+if(token) {
+    //decode bearer token
+    const decodedToken = jwtDecode(token);
+    //check if token expired
+    if(decodedToken.exp*1000 < Date.now()) {
+        window.location.href='/login';
+        store.dispatch(logoutUser());
+    }
+    else {
+        store.dispatch({ type: SET_AUTHENTICATED });
+        axios.defaults.headers.common['Authorization'] = token;
+        store.dispatch(getUserData());
+    }
+}
 
 class App extends Component {
     render() {
