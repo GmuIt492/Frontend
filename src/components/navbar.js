@@ -107,7 +107,23 @@ class navbar extends Component {
                     </div>
                     <div className="nav-container" style={{display:changeMenuItem}}>
                         <Button color="secondary" component={Link} to="/"><h4>Services</h4></Button>
-                        <Button color="secondary" component={Link} to="/"><h4>Appointments</h4></Button>
+                        <Button color="secondary">
+                            <h4>
+                                <div class="spwidget-button-wrapper">
+                                    <a href="https://huong-nguyen-duong.clientsecure.me"
+                                        class="spwidget-button"
+                                        data-spwidget-scope-id="8c7179e6-d993-446c-85f2-76097fb180a1"
+                                        data-spwidget-scope-uri="huong-nguyen-duong"
+                                        data-spwidget-application-id="7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b"
+                                        data-spwidget-scope-global data-spwidget-autobind
+                                        target="_blank"
+                                    >
+                                            Appointment
+                                    </a>
+                                </div>
+                                <script src="https://widget-cdn.simplepractice.com/assets/integration-1.0.js"></script>
+                            </h4>
+                        </Button>
                         <Button color="secondary" component={Link} to="/"><h4>About</h4></Button>
                         <Feedback/>
                         {authenticated ? (
