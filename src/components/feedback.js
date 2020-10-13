@@ -19,7 +19,8 @@ import CloseIcon from '@material-ui/icons/Close';
 //css
 const styles = {
     submitButton: {
-        position: 'relative'
+        position: 'relative',
+        padding: 10
     },
     progressSpinner: {
         position: 'absolute'

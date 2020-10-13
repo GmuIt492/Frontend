@@ -24,6 +24,7 @@ const styles = {
     button: {
         marginTop: 20,
         marginBottom: 20,
+        padding: 10,
         position: 'relative'
     },
     progress: {
