@@ -4,7 +4,9 @@ class admin extends Component {
     render() {
         return (
             <div>
-                <h1>Admin</h1>
+                <h1>Feedback List (Selection Option To Showcase)</h1>
+                <h1>Statistics</h1>
+                <h1>Homepage Event Banner</h1>
             </div>
         )
     }

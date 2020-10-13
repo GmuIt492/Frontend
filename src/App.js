@@ -47,7 +47,7 @@ if(token) {
     const decodedToken = jwtDecode(token);
     //check if token expired
     if(decodedToken.exp*1000 < Date.now()) {
-        window.location.href='/login';
+        window.location.href='/';
         store.dispatch(logoutUser());
     }
     else {

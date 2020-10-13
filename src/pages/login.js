@@ -16,7 +16,8 @@ import { loginUser } from '../redux/actions/userActions';
 //css
 const styles = {
     form: {
-        textAlign: 'center'
+        textAlign: 'center',
+        padding: 25
     },
     textField: {
         margin: '10px auto 10px auto'

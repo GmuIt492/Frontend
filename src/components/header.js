@@ -41,8 +41,8 @@ class header extends Component {
 
     //render header banner
     render() {
-        let changeHeader = this.state.pathLink === "#/" ? "550px" : "275px"; //size of picture
-        let changeMotto = this.state.pathLink === "#/" ? "475px" : "200px"; //location of title
+        let changeHeader = this.state.pathLink === "#/" || "/" ? "550px" : "275px"; //size of picture
+        let changeMotto = this.state.pathLink === "#/" || "/" ? "475px" : "200px"; //location of title
         return (
             <div className="header" style={{height:changeHeader}}>
                 <h2 className="header-motto" style={{paddingTop:changeMotto}}>{this.switchMotto(this.state.pathLink)}</h2>
