@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class slideshow extends Component {
     render() {
         return (
-            <div>
+            <div className="slideshow">
                 <h1>Create picture slideshow</h1>
             </div>
         )

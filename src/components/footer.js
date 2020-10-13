@@ -13,6 +13,7 @@ class footer extends Component {
             <div className="footer">
                 <Grid item xs={12}>
                     <Box bgcolor="primary.main" color="primary.contrastText" p={2}>
+                        <Button color="secondary" component={Link} to="/"><h2>Everyday Eyecare</h2></Button>
                         <Grid container spacing={1}>
                             <Grid item xs={12} sm={4}>
                                 <Box p={2}>

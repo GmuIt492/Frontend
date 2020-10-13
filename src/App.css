@@ -68,13 +68,25 @@ a {
     position: relative;
     color: #1b1b1b;
 }
-.googleApi {
+.welcome {
+    margin: auto;
+    text-align: center;
+    position: relative;
+    padding: 10px;
+}
+.slideshow {
     margin: auto;
     text-align: center;
     position: relative;
     padding: 10px;
 }
 .insurance {
+    margin: auto;
+    text-align: center;
+    position: relative;
+    padding: 10px;
+}
+.googleApi {
     margin: auto;
     text-align: center;
     position: relative;

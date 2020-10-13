@@ -88,20 +88,6 @@ class navbar extends Component {
             changeMenuItem = "none";
         }
 
-        //handle menu click when window resized
-        const handleClick = (event) => {
-            this.setState({
-                anchorEl: event.currentTarget
-            })
-        };
-
-        //handle menu click when window resized
-        const handleClose = () => {
-            this.setState({
-                anchorEl: null
-            })
-        };
-
         //auth boolean
         const { authenticated } = this.props;
 
@@ -112,38 +98,16 @@ class navbar extends Component {
                         <Button color="secondary" component={Link} to="/"><h1>Everyday Eyecare</h1></Button>
                     </div>
                     <div className="menu-icon">
-                        <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+                        <Button>
                             <MenuIcon color="secondary" style={{fontSize:50,display:changeMenu}}/>
                         </Button>
-                        {/* <Menu
-                            id="simple-menu"
-                            anchorEl={this.state.anchorEl}
-                            keepMounted
-                            open={Boolean(this.state.anchorEl)}
-                            onClose={handleClose}
-                        >
-                            <MenuItem onClick={handleClose}>Profile</MenuItem>
-                            <MenuItem onClick={handleClose}>My account</MenuItem>
-                            <MenuItem onClick={handleClose}>Logout</MenuItem>
-                        </Menu> */}
                     </div>
                     <div className="menu-contact">
                         <Button color="secondary"><PhoneIcon style={{paddingRight:"5px"}}/><a href="tel:7037642015">703.764.2015</a></Button>
                     </div>
                     <div className="nav-container" style={{display:changeMenuItem}}>
                         <Button color="secondary" component={Link} to="/"><h4>Services</h4></Button>
-                        <Button color="secondary" aria-controls="appointment-menu" aria-haspopup="true" onClick={handleClick}><h4>Appointments</h4></Button>
-                        <Menu
-                            id="appointment-menu"
-                            anchorEl={this.state.anchorEl}
-                            keepMounted
-                            open={Boolean(this.state.anchorEl)}
-                            onClose={handleClose}
-                        >
-                            <MenuItem onClick={handleClose}>Profile</MenuItem>
-                            <MenuItem onClick={handleClose}>My account</MenuItem>
-                            <MenuItem onClick={handleClose}>Logout</MenuItem>
-                        </Menu>
+                        <Button color="secondary" component={Link} to="/"><h4>Appointments</h4></Button>
                         <Button color="secondary" component={Link} to="/"><h4>About</h4></Button>
                         <Feedback/>
                         {authenticated ? (
