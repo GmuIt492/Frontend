@@ -19,6 +19,7 @@ import Navbar from './components/navbar'
 import Header from './components/header'
 import Footer from './components/footer'
 import ScrollToTop from './components/scrollToTop';
+import AuthRoute from './util/AuthRoute';
 
 //pages
 import home from './pages/home';
@@ -26,6 +27,7 @@ import privacyPolicy from './pages/privacyPolicy';
 import contact from './pages/contact';
 import termCondition from './pages/termCondition';
 import login from './pages/login';
+import admin from './pages/admin';
 
 //util
 import themeFile from './util/theme';
@@ -53,6 +55,7 @@ class App extends Component {
                                     <Route exact path='/contact' component={contact}/>
                                     <Route exact path='/termCondition' component={termCondition}/>
                                     <Route exact path='/login' component={login}/>
+                                    <AuthRoute exact path='/admin' component={admin}/>
                                 </Switch>
                             </ScrollToTop>
                             <Footer/>

@@ -79,7 +79,7 @@ class navbar extends Component {
     render() {
         let changeLogo = this.state.scrollPosition > 0.4 ? "none" : ""; //removes logo base on scroll position
         let changeNavBar = this.state.scrollPosition > 0.4 ? 'primary' : 'transparent'; //change navbar color base on scroll position
-        let changeMenuAuth = this.state.scrollPosition > 0.4 ? '150px' : '10px'; //change auth menu items base on scroll position
+        let changeMenuAuth = this.state.scrollPosition > 0.4 ? '160px' : '10px'; //change auth menu items base on scroll position
         let changeMenu = "none"; //initiate menu to resize
         let changeMenuItem = ""; //initiate menu items to resize
         if (this.state.pageWidth < 1000) { //if window size is reduced, display logo and change menu
@@ -148,7 +148,7 @@ class navbar extends Component {
                         <Feedback/>
                         {authenticated ? (
                                 <span className="nav-container-auth" style={{right:changeMenuAuth}}>
-                                    <Button color="secondary" component={Link} to="/profile"><h4>Profile</h4></Button>
+                                    <Button color="secondary" component={Link} to="/admin"><h4>Admin</h4></Button>
                                     <Button color="secondary" component={Link} onClick={this.handleLogout}><h4>Logout</h4></Button>
                                 </span>
                             )
