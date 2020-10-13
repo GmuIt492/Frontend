@@ -100,6 +100,27 @@ a {
     overflow: hidden;
     background: none !important;
 }
+.about {
+    width: 90%;
+    max-width: 700px;
+    margin: 100px auto 100px auto;
+    line-height: 24px;
+}
+.about-left {
+    background: transparent url(assets/img/aboutLeft.jpg) center no-repeat;
+    position: absolute;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    left: 20px;
+    background-size: cover;
+}
+.header {
+    background: transparent url(assets/img/header.jpg) center no-repeat;
+    position: relative;
+    width: 100%;
+    background-size: cover;
+}
 .privacyPolicy {
     width: 90%;
     max-width: 700px;

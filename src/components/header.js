@@ -22,6 +22,8 @@ class header extends Component {
     //switch case page path for header title
     switchMotto(pathLink) {
         switch(pathLink) {
+            case "#/about":
+                return "About";
             case "#/privacyPolicy":
                 return "Privacy Policy";
             case "#/contact":
@@ -30,6 +32,8 @@ class header extends Component {
                 return "Terms & Conditions";
             case "#/login":
                 return "Login";
+            case "#/admin":
+                return "Admin";
             default:
                 return "Your Eyes. Our Passion.";
         }

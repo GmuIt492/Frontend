@@ -25,6 +25,7 @@ import AuthRoute from './util/AuthRoute';
 
 //pages
 import home from './pages/home';
+import about from './pages/about';
 import privacyPolicy from './pages/privacyPolicy';
 import contact from './pages/contact';
 import termCondition from './pages/termCondition';
@@ -68,6 +69,7 @@ class App extends Component {
                             <ScrollToTop>
                                 <Switch>
                                     <Route exact path='/' component={home}/>
+                                    <Route exact path='/about' component={about}/>
                                     <Route exact path='/privacyPolicy' component={privacyPolicy}/>
                                     <Route exact path='/contact' component={contact}/>
                                     <Route exact path='/termCondition' component={termCondition}/>

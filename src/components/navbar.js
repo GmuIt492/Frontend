@@ -124,7 +124,7 @@ class navbar extends Component {
                                 <script src="https://widget-cdn.simplepractice.com/assets/integration-1.0.js"></script>
                             </h4>
                         </Button>
-                        <Button color="secondary" component={Link} to="/"><h4>About</h4></Button>
+                        <Button color="secondary" component={Link} to="/about"><h4>About</h4></Button>
                         <Feedback/>
                         {authenticated ? (
                                 <span className="nav-container-auth" style={{right:changeMenuAuth}}>
