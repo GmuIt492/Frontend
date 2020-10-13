@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 //material ui components
 import AppBar from '@material-ui/core/AppBar'
@@ -10,6 +12,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 //material ui icons
 import MenuIcon from '@material-ui/icons/Menu';
 import PhoneIcon from '@material-ui/icons/Phone';
+
+//redux
+import { logoutUser } from '../redux/actions/userActions';
 
 //components
 import Feedback from './feedback.js';
@@ -65,10 +70,16 @@ class navbar extends Component {
         // console.log(this.state.pageWidth);
     }
 
+    //method to logout user
+    handleLogout = () => {
+        this.props.logoutUser();
+    }
+
     //render navigation bar
     render() {
         let changeLogo = this.state.scrollPosition > 0.4 ? "none" : ""; //removes logo base on scroll position
         let changeNavBar = this.state.scrollPosition > 0.4 ? 'primary' : 'transparent'; //change navbar color base on scroll position
+        let changeMenuAuth = this.state.scrollPosition > 0.4 ? '150px' : '10px'; //change auth menu items base on scroll position
         let changeMenu = "none"; //initiate menu to resize
         let changeMenuItem = ""; //initiate menu items to resize
         if (this.state.pageWidth < 1000) { //if window size is reduced, display logo and change menu
@@ -90,6 +101,10 @@ class navbar extends Component {
                 anchorEl: null
             })
         };
+
+        //auth boolean
+        const { authenticated } = this.props;
+
         return (
             <div className="navbar">
                 <AppBar position='sticky' color={changeNavBar} elevation={0}>
@@ -131,7 +146,14 @@ class navbar extends Component {
                         </Menu>
                         <Button color="secondary" component={Link} to="/"><h4>About</h4></Button>
                         <Feedback/>
-                        {/* <Button color="inherit" component={Link} to="/login">Login</Button> */}
+                        {authenticated ? (
+                                <span className="nav-container-auth" style={{right:changeMenuAuth}}>
+                                    <Button color="secondary" component={Link} to="/profile"><h4>Profile</h4></Button>
+                                    <Button color="secondary" component={Link} onClick={this.handleLogout}><h4>Logout</h4></Button>
+                                </span>
+                            )
+                            : (<></>)
+                        }
                     </div>
                 </AppBar>
             </div>
@@ -139,4 +161,27 @@ class navbar extends Component {
     }
 }
 
-export default navbar
+//checks prop types for auth
+navbar.propTypes = {
+    authenticated: PropTypes.bool.isRequired
+};
+
+//map auth state to global props
+const mapStateToProps = (state) => ({
+    authenticated: state.user.authenticated,
+    user: state.user
+});
+
+//actions used
+const mapActionsToProps = {
+    logoutUser
+};
+
+//checks prop types for user
+navbar.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired,
+    // classes: PropTypes.object.isRequired
+};
+
+export default connect(mapStateToProps,mapActionsToProps)(navbar);

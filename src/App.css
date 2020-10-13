@@ -20,6 +20,9 @@ a {
     margin: auto;
     padding: 20px;
 }
+.nav-container-auth {
+    position: absolute;
+}
 .navbar {
     margin: auto;
     position: fixed;
