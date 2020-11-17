@@ -44,6 +44,9 @@ a {
     bottom: 5%;
     z-index: 1;
 }
+.scroll-up-icon:active {
+    opacity: .7;
+}
 .menu-icon {
     position: absolute;
 }

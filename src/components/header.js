@@ -14,7 +14,7 @@ class header extends Component {
     componentDidMount() {
         window.addEventListener('click', this.listenToClick);
         window.addEventListener('popstate', this.listenToClick);
-        setInterval(this.changeImage, 5000)
+        setInterval(this.changeImage, 7000);
     }
 
     //on page click / change

@@ -29,14 +29,18 @@ class navbar extends Component {
 
     //listen for user scrolls / resize
     componentDidMount() {
-        window.addEventListener('scroll', this.listenToScroll)
-        window.addEventListener('resize', this.listenToResize)
+        window.addEventListener('scroll', this.listenToScroll);
+        window.addEventListener('resize', this.listenToResize);
+        const script = document.createElement("script");
+        script.src = "https://widget-cdn.simplepractice.com/assets/integration-1.0.js";
+        script.async = true;
+        document.body.appendChild(script);
     }
 
     //listen for user scrolls / resize
     componentWillUnmount() {
-        window.removeEventListener('scroll', this.listenToScroll)
-        window.removeEventListener('resize', this.listenToResize)
+        window.removeEventListener('scroll', this.listenToScroll);
+        window.removeEventListener('resize', this.listenToResize);
     }
 
     //method to set scroll position state variable
@@ -127,7 +131,6 @@ class navbar extends Component {
                                                 Appointment
                                         </a>
                                     </div>
-                                    <script src="https://widget-cdn.simplepractice.com/assets/integration-1.0.js"></script>
                                 </h4>
                             </Button>
                             <Button color="secondary" component={Link} to="/about"><h4>About</h4></Button>
