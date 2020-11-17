@@ -44,7 +44,6 @@ class header extends Component {
 
     //render header banner
     render() {
-        console.log(this.state.pathLink);
         let changeHeader = !this.state.pathLink.match(/[a-z]/i) ? "550px" : "275px"; //size of picture
         let changeMotto = !this.state.pathLink.match(/[a-z]/i) ? "475px" : "200px"; //location of title
         return (
