@@ -6,8 +6,6 @@ import PropTypes from 'prop-types';
 //material ui components
 import AppBar from '@material-ui/core/AppBar'
 import Button from '@material-ui/core/Button'
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
 
 //material ui icons
 import MenuIcon from '@material-ui/icons/Menu';
@@ -109,11 +107,11 @@ class navbar extends Component {
                         <Button color="secondary" component={Link} to="/"><h4>Services</h4></Button>
                         <Button color="secondary">
                             <h4>
-                                <div class="spwidget-button-wrapper">
-                                    <a href="https://huong-nguyen-duong.clientsecure.me"
-                                        class="spwidget-button"
+                                <div className="spwidget-button-wrapper">
+                                    <a href="https://everydayeyecare.clientsecure.me"
+                                        className="spwidget-button"
                                         data-spwidget-scope-id="8c7179e6-d993-446c-85f2-76097fb180a1"
-                                        data-spwidget-scope-uri="huong-nguyen-duong"
+                                        data-spwidget-scope-uri="everydayeyecare"
                                         data-spwidget-application-id="7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b"
                                         data-spwidget-scope-global data-spwidget-autobind
                                         target="_blank"
