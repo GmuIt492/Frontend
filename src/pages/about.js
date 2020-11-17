@@ -5,6 +5,7 @@ class about extends Component {
     render() {
         return (
             <>
+                {/* <div className="about-left"></div> */}
                 <div className="about">
                     <h2>Kara Duong</h2>
                     <h4>Doctor of Optometry</h4>

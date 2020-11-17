@@ -53,10 +53,8 @@ a {
     padding: 12px;
 }
 .header {
-    background: transparent url(assets/img/header.jpg) center no-repeat;
     position: relative;
     width: 100%;
-    background-size: cover;
 }
 .header-motto {
     position: absolute;
@@ -115,18 +113,11 @@ a {
     line-height: 24px;
 }
 .about-left {
-    background: transparent url(assets/img/aboutLeft.jpg) center no-repeat;
     position: absolute;
     width: 100%;
     max-width: 500px;
     height: 100%;
     left: 20px;
-    background-size: cover;
-}
-.header {
-    background: transparent url(assets/img/header.jpg) center no-repeat;
-    position: relative;
-    width: 100%;
     background-size: cover;
 }
 .privacyPolicy {

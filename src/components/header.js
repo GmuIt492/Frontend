@@ -46,8 +46,13 @@ class header extends Component {
     render() {
         let changeHeader = !this.state.pathLink.match(/[a-z]/i) ? "550px" : "275px"; //size of picture
         let changeMotto = !this.state.pathLink.match(/[a-z]/i) ? "475px" : "200px"; //location of title
+        let images = [];
+        setInterval(function(){
+
+        }, 10000);
+        let background = "transparent url(/header.jpg) center no-repeat";
         return (
-            <div className="header" style={{height:changeHeader}}>
+            <div className="header" style={{height:changeHeader,background:background,backgroundSize:"cover"}}>
                 <h2 className="header-motto" style={{paddingTop:changeMotto}}>{this.switchMotto(this.state.pathLink)}</h2>
             </div>
         )
