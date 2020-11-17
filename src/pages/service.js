@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class about extends Component {
+class service extends Component {
     //render terms and conditions page
     render() {
         return (
@@ -20,4 +20,4 @@ class about extends Component {
     }
 }
 
-export default about
+export default service

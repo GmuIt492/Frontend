@@ -8,7 +8,8 @@ class header extends Component {
     
     //listen for page click / change
     componentDidMount() {
-        window.addEventListener('click', this.listenToClick)
+        window.addEventListener('click', this.listenToClick);
+        window.addEventListener('popstate', this.listenToClick);
     }
 
     //on page click / change
@@ -22,6 +23,8 @@ class header extends Component {
     //switch case page path for header title
     switchMotto(pathLink) {
         switch(pathLink) {
+            case "#/service":
+                return "Services";
             case "#/about":
                 return "About";
             case "#/privacyPolicy":
@@ -41,8 +44,9 @@ class header extends Component {
 
     //render header banner
     render() {
-        let changeHeader = this.state.pathLink === "#/" || "/" ? "550px" : "275px"; //size of picture
-        let changeMotto = this.state.pathLink === "#/" || "/" ? "475px" : "200px"; //location of title
+        console.log(this.state.pathLink);
+        let changeHeader = !this.state.pathLink.match(/[a-z]/i) ? "550px" : "275px"; //size of picture
+        let changeMotto = !this.state.pathLink.match(/[a-z]/i) ? "475px" : "200px"; //location of title
         return (
             <div className="header" style={{height:changeHeader}}>
                 <h2 className="header-motto" style={{paddingTop:changeMotto}}>{this.switchMotto(this.state.pathLink)}</h2>

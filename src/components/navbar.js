@@ -8,6 +8,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Button from '@material-ui/core/Button'
 
 //material ui icons
+import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 import MenuIcon from '@material-ui/icons/Menu';
 import PhoneIcon from '@material-ui/icons/Phone';
 
@@ -73,6 +74,11 @@ class navbar extends Component {
         this.props.logoutUser();
     }
 
+    //method to scroll to top
+    handleScroll = () => {
+        window.scrollTo(0, 0);
+    }
+
     //render navigation bar
     render() {
         let changeLogo = this.state.scrollPosition > 0.3 ? "none" : ""; //removes logo base on scroll position
@@ -90,51 +96,55 @@ class navbar extends Component {
         const { authenticated } = this.props;
 
         return (
-            <div className="navbar">
-                <AppBar position='sticky' color={changeNavBar} elevation={0}>
-                    <div className="nav-logo" style={{display:changeLogo}}> 
-                        <Button color="secondary" component={Link} to="/"><h1>Everyday Eyecare</h1></Button>
-                    </div>
-                    <div className="menu-icon">
-                        <Button>
-                            <MenuIcon color="secondary" style={{fontSize:50,display:changeMenu}}/>
-                        </Button>
-                    </div>
-                    <div className="menu-contact">
-                        <Button color="secondary"><PhoneIcon style={{paddingRight:"5px"}}/><a href="tel:7037642015">703.764.2015</a></Button>
-                    </div>
-                    <div className="nav-container" style={{display:changeMenuItem}}>
-                        <Button color="secondary" component={Link} to="/"><h4>Services</h4></Button>
-                        <Button color="secondary">
-                            <h4>
-                                <div className="spwidget-button-wrapper">
-                                    <a href="https://everydayeyecare.clientsecure.me"
-                                        className="spwidget-button"
-                                        data-spwidget-scope-id="8c7179e6-d993-446c-85f2-76097fb180a1"
-                                        data-spwidget-scope-uri="everydayeyecare"
-                                        data-spwidget-application-id="7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b"
-                                        data-spwidget-scope-global data-spwidget-autobind
-                                        target="_blank"
-                                    >
-                                            Appointment
-                                    </a>
-                                </div>
-                                <script src="https://widget-cdn.simplepractice.com/assets/integration-1.0.js"></script>
-                            </h4>
-                        </Button>
-                        <Button color="secondary" component={Link} to="/about"><h4>About</h4></Button>
-                        <Feedback/>
-                        {authenticated ? (
-                                <span className="nav-container-auth" style={{right:changeMenuAuth}}>
-                                    <Button color="secondary" component={Link} to="/admin"><h4>Admin</h4></Button>
-                                    <Button color="secondary" component={Link} to="/" onClick={this.handleLogout}><h4>Logout</h4></Button>
-                                </span>
-                            )
-                            : (<></>)
-                        }
-                    </div>
-                </AppBar>
-            </div>
+            <>
+                <div className="navbar">
+                    <AppBar position='sticky' color={changeNavBar} elevation={0}>
+                        <div className="nav-logo" style={{display:changeLogo}}> 
+                            <Button color="secondary" component={Link} to="/"><h1>Everyday Eyecare</h1></Button>
+                        </div>
+                        <div className="menu-icon">
+                            <Button>
+                                <MenuIcon color="secondary" style={{fontSize:50,display:changeMenu}}/>
+                            </Button>
+                        </div>
+                        <div className="menu-contact">
+                            <Button color="secondary"><PhoneIcon style={{paddingRight:"5px"}}/><a href="tel:7037642015">703.764.2015</a></Button>
+                        </div>
+                        <div className="nav-container" style={{display:changeMenuItem}}>
+                            <Button color="secondary" component={Link} to="/service"><h4>Services</h4></Button>
+                            <Button color="secondary">
+                                <h4>
+                                    <div className="spwidget-button-wrapper">
+                                        <a href="https://everydayeyecare.clientsecure.me"
+                                            className="spwidget-button"
+                                            data-spwidget-scope-id="8c7179e6-d993-446c-85f2-76097fb180a1"
+                                            data-spwidget-scope-uri="everydayeyecare"
+                                            data-spwidget-application-id="7c72cb9f9a9b913654bb89d6c7b4e71a77911b30192051da35384b4d0c6d505b"
+                                            data-spwidget-scope-global data-spwidget-autobind
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                                Appointment
+                                        </a>
+                                    </div>
+                                    <script src="https://widget-cdn.simplepractice.com/assets/integration-1.0.js"></script>
+                                </h4>
+                            </Button>
+                            <Button color="secondary" component={Link} to="/about"><h4>About</h4></Button>
+                            <Feedback/>
+                            {authenticated ? (
+                                    <span className="nav-container-auth" style={{right:changeMenuAuth}}>
+                                        <Button color="secondary" component={Link} to="/admin"><h4>Admin</h4></Button>
+                                        <Button color="secondary" component={Link} to="/" onClick={this.handleLogout}><h4>Logout</h4></Button>
+                                    </span>
+                                )
+                                : (<></>)
+                            }
+                        </div>
+                    </AppBar>
+                </div>
+                <ArrowDropDownCircleIcon className="scroll-up-icon" fontSize="large" onClick={this.handleScroll}/>
+            </>
         )
     }
 }
