@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 //components
-import Slideshow from '../components/slideshow'
 import Insurance from '../components/insurance'
 import GoogleMapApi from '../components/googleMapApi'
 
@@ -27,7 +26,6 @@ class home extends Component {
                         Schedule a visit now for you and your family! We will be honored to have you as a patient and look forward to providing you with our services.
                     </p>
                 </div>
-                <Slideshow/>
                 <Insurance/>
                 <GoogleMapApi/>
             </div>

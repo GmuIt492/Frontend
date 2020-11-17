@@ -4,7 +4,7 @@ class header extends Component {
     //initialize state variables
     state = {
         pathLink: window.location.hash,
-        images: ["header.jpg","micro.jpg","operate.jpg","pose.jpg"],
+        images: ["header.jpg","operate.jpg","pose.jpg","micro.jpg"],
         imageIndex: 0,
         interval: 0,
         background: "transparent url(/header.jpg) center center / cover no-repeat"
@@ -25,6 +25,7 @@ class header extends Component {
         // console.log(this.state.pathLink);
     }
 
+    //change header background by iterating through images array
     changeImage = () => {
         let index = this.state.imageIndex;
         if (this.state.imageIndex === this.state.images.length - 1) {
