@@ -2,9 +2,9 @@ import { SET_POSTS,LOADING_DATA,LIKE_POST,UNLIKE_POST,DELETE_POST,SET_ERRORS,CLE
 import axios from 'axios';
 
 //get all posts
-export const getPosts = () => (dispatch) => {
+export const getFeedbacks = () => (dispatch) => {
     dispatch({ type: LOADING_DATA });
-    axios.get('/posts')
+    axios.get('/feedback')
     .then((result) => {
         dispatch({
             type: SET_POSTS,
@@ -39,30 +39,6 @@ export const feedbackAction = (newFeedback) => (dispatch) => {
                 payload: error.response.data
             })
         })
-}
-
-//like a post
-export const likePost = (postId) => (dispatch) => {
-    axios.get(`/post/${postId}/like`)
-    .then((result) => {
-        dispatch({
-            type: LIKE_POST,
-            payload: result.data
-        })
-    })
-    .catch((err) => console.log(err));
-}
-
-//unlike a post
-export const unlikePost = (postId) => (dispatch) => {
-    axios.get(`/post/${postId}/unlike`)
-    .then((result) => {
-        dispatch({
-            type: UNLIKE_POST,
-            payload: result.data
-        })
-    })
-    .catch((err) => console.log(err));
 }
 
 //delete a post

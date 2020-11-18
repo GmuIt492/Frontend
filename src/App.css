@@ -125,6 +125,11 @@ a {
     left: 20px;
     background-size: cover;
 }
+.admin {
+    width: 90%;
+    margin: 100px auto 100px auto;
+    line-height: 24px;
+}
 .privacyPolicy {
     width: 90%;
     max-width: 700px;
