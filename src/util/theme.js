@@ -15,7 +15,7 @@ export default  {
     },
     typography: {
         fontFamily: [
-            'Roboto'
+            'Optician Sans'
         ].join(','),
         useNextVarients: true,
         button: {

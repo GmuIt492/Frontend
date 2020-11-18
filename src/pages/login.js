@@ -83,7 +83,7 @@ class login extends Component {
         //bring errors and load state
         const { errors} = this.state;
         return (
-            <div>
+            <div className="login">
                 <Grid container className={classes.form}>
                     <Grid item sm/>
                     <Grid item sm>

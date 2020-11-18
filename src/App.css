@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Alegreya');
+@font-face {
+    font-family: 'Optician Sans';
+    src: local('OpticianSans'), url(/Optician-Sans.otf) format('OpenType');
+}
 html,
 body {
-    font-family: 'Roboto';
+    font-family: 'Optician Sans';
     margin: 0px;
     font-size: 16px;
     text-align: justify;
@@ -11,6 +16,9 @@ h4 {
 a {
     color: inherit;
     text-decoration: inherit;
+}
+.app {
+    background-color: rgba(249,249,249);
 }
 .nav-logo {
     margin: auto;
@@ -43,6 +51,7 @@ a {
     right: 1%;
     bottom: 5%;
     z-index: 1;
+    color: #999999;
 }
 .scroll-up-icon:active {
     opacity: .7;
@@ -77,12 +86,15 @@ a {
     position: relative;
     color: #1b1b1b;
 }
+.welcome-header {
+    text-align: center;
+}
 .welcome {
     margin: auto;
-    text-align: center;
+    text-align: justify;
     position: relative;
     padding: 10px;
-    width: 90%;
+    width: 80%;
 }
 .insurance {
     margin: auto;
@@ -151,6 +163,11 @@ a {
     width: 90%;
     max-width: 700px;
     margin: 100px auto 100px auto;
+    line-height: 24px;
+}
+.login {
+    width: 90%;
+    margin: 30px auto 30px auto;
     line-height: 24px;
 }
 @media (max-width:500px) {

@@ -10,7 +10,7 @@ class home extends Component {
         return (
             <div className="homepage">
                 <div className="welcome">
-                    <h1>We would like to welcome you to Everyday Eyecare</h1>
+                    <h1 className="welcome-header">We would like to welcome you to Everyday Eyecare</h1>
                     <p>
                         Our professionals help you to see clearly and manage the health and wellness of your vision.
                         Our team evaluates and educates every patient in a respectful and courteous manner.

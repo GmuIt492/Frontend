@@ -63,7 +63,7 @@ class App extends Component {
         return (
             <Provider store={store}>
                 <MuiThemeProvider theme={theme}>
-                    <div className="App">
+                    <div className="app">
                         <Router basename='/#'>
                             <Header/>
                             <Navbar/>
