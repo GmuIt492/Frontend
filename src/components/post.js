@@ -38,8 +38,8 @@ class post extends Component {
             post:{
                 body,
                 createdAt,
-                userHandle,
-                postId
+                userHandle
+                // postId
             }
          } = this.props;
         return (

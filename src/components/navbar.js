@@ -24,7 +24,8 @@ class navbar extends Component {
         scrollPosition: null,
         pageHeight: document.documentElement.clientHeight,
         pageWidth: document.documentElement.clientWidth,
-        anchorEl: null
+        anchorEl: null,
+        dropdown: false
     }
 
     //listen for user scrolls / resize
@@ -69,7 +70,7 @@ class navbar extends Component {
         this.setState({
             pageHeight: height,
             pageWidth: width
-        })
+        });
         // console.log(this.state.pageWidth);
     }
 
@@ -83,6 +84,17 @@ class navbar extends Component {
         window.scrollTo(0, 0);
     }
 
+    //method to bring dropdown
+    handleDropdown = () => {
+        let dropdown = false;
+        if (this.state.dropdown === false) {
+            dropdown = true;
+        }
+        this.setState({
+            dropdown: dropdown
+        });
+    }
+
     //render navigation bar
     render() {
         let changeLogo = this.state.scrollPosition > 0.2 ? "none" : ""; //removes logo base on scroll position
@@ -93,7 +105,9 @@ class navbar extends Component {
         if (this.state.pageWidth < 1000) { //if window size is reduced, display logo and change menu
             changeLogo = "";
             changeMenu = "";
-            changeMenuItem = "none";
+            if (this.state.dropdown === false) {
+                changeMenuItem = "none";
+            }
         }
 
         //auth boolean
@@ -107,7 +121,7 @@ class navbar extends Component {
                             <Button color="secondary" component={Link} to="/"><h1>Everyday Eyecare</h1></Button>
                         </div>
                         <div className="menu-icon">
-                            <Button>
+                            <Button onClick={this.handleDropdown}>
                                 <MenuIcon color="secondary" style={{fontSize:50,display:changeMenu}}/>
                             </Button>
                         </div>
