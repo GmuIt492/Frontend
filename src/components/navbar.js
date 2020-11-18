@@ -100,14 +100,16 @@ class navbar extends Component {
         let changeLogo = this.state.scrollPosition > 0.2 ? "none" : ""; //removes logo base on scroll position
         let changeNavBar = this.state.scrollPosition > 0.2 ? 'primary' : 'transparent'; //change navbar color base on scroll position
         let changeMenuAuth = this.state.scrollPosition > 0.2 ? '160px' : '10px'; //change auth menu items base on scroll position
-        let changeMenu = "none"; //initiate menu to resize
-        let changeMenuItem = ""; //initiate menu items to resize
+        let changeAuthPosition = "absolute"; //initiate admin menu items to right side
+        let changeMenu = "none"; //initiate hide menu icon
+        let changeMenuItem = ""; //initiate show menu items
         if (this.state.pageWidth < 1000) { //if window size is reduced, display logo and change menu
             changeLogo = "";
-            changeMenu = "";
+            changeMenu = ""; //shows menu icon
             if (this.state.dropdown === false) {
-                changeMenuItem = "none";
+                changeMenuItem = "none"; //hides menu
             }
+            changeAuthPosition = ""; //show admin menu items to center
         }
 
         //auth boolean
@@ -120,13 +122,13 @@ class navbar extends Component {
                         <div className="nav-logo" style={{display:changeLogo}}> 
                             <Button color="secondary" component={Link} to="/"><h1>Everyday Eyecare</h1></Button>
                         </div>
+                        <div className="menu-contact">
+                            <Button color="secondary"><PhoneIcon style={{paddingRight:"5px"}}/><a href="tel:7037642015">703.764.2015</a></Button>
+                        </div>
                         <div className="menu-icon">
                             <Button onClick={this.handleDropdown}>
                                 <MenuIcon color="secondary" style={{fontSize:50,display:changeMenu}}/>
                             </Button>
-                        </div>
-                        <div className="menu-contact">
-                            <Button color="secondary"><PhoneIcon style={{paddingRight:"5px"}}/><a href="tel:7037642015">703.764.2015</a></Button>
                         </div>
                         <div className="nav-container" style={{display:changeMenuItem}}>
                             <Button color="secondary" component={Link} to="/service"><h4>Services</h4></Button>
@@ -150,10 +152,10 @@ class navbar extends Component {
                             <Button color="secondary" component={Link} to="/about"><h4>About</h4></Button>
                             <Feedback/>
                             {authenticated ? (
-                                    <span className="nav-container-auth" style={{right:changeMenuAuth}}>
+                                    <div className="nav-container-auth" style={{right:changeMenuAuth,position:changeAuthPosition}}>
                                         <Button color="secondary" component={Link} to="/admin"><h4>Admin</h4></Button>
                                         <Button color="secondary" component={Link} to="/" onClick={this.handleLogout}><h4>Logout</h4></Button>
-                                    </span>
+                                    </div>
                                 )
                                 : (<></>)
                             }
