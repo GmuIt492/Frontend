@@ -103,7 +103,7 @@ class navbar extends Component {
         let changeAuthPosition = "absolute"; //initiate admin menu items to right side
         let changeMenu = "none"; //initiate hide menu icon
         let changeMenuItem = ""; //initiate show menu items
-        if (this.state.pageWidth < 1000) { //if window size is reduced, display logo and change menu
+        if (this.state.pageWidth < 1150) { //if window size is reduced, display logo and change menu
             changeLogo = "";
             changeMenu = ""; //shows menu icon
             if (this.state.dropdown === false) {
