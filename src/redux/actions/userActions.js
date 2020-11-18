@@ -9,7 +9,7 @@ import {
 import axios from 'axios';
 
 //login function
-export const loginUser = (userData,history) => (dispatch) => {
+export const loginUser = (userData) => (dispatch) => {
     dispatch({ type: LOADING_UI });
     //process login
     axios.post('/login',userData)
@@ -18,8 +18,6 @@ export const loginUser = (userData,history) => (dispatch) => {
         dispatch(getUserData());
         //clear error from form
         dispatch({ type: CLEAR_ERRORS});
-        //actual redirection
-        history.push('/');
     })
     .catch((err) => {
         dispatch({

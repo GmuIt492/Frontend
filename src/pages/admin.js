@@ -29,7 +29,7 @@ class admin extends Component {
                     <h1 className="feedbackTitle">Feedback</h1>
                     <br/><br/>
                     <div>
-                        <Grid container spacing={10}>
+                        <Grid container spacing={5}>
                             {recentPostMarkup}
                         </Grid>
                     </div>

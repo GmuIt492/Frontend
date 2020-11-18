@@ -65,8 +65,11 @@ class login extends Component {
             email: this.state.email,
             password: this.state.password
         };
-        //redirect on success
-        this.props.loginUser(userData, this.props.history);
+        //logs in and returns token
+        this.props.loginUser(userData);
+
+        //actual redirection
+        this.props.history.go(-1);
     }
 
     //targets form field and allows change of target value
