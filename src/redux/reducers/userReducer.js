@@ -1,9 +1,7 @@
 import { SET_USER,
     SET_UNAUTHENTICATED,
     SET_AUTHENTICATED,
-    LOADING_USER,
-    LIKE_POST,
-    UNLIKE_POST
+    LOADING_USER
 } from '../types';
 
 //state of user reducer data
@@ -39,26 +37,6 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 loading: true
-            }
-        //add like
-        case LIKE_POST:
-            return {
-                ...state,
-                likes: [
-                    ...state.likes,
-                    {
-                        userHandle: state.credentials.handle,
-                        postId: action.payload.postId
-                    }
-                ]
-            }
-        //remove like
-        case UNLIKE_POST:
-            return {
-                ...state,
-                likes: state.likes.filter(
-                    like => like.postId !== action.payload.postId
-                )
             }
         default:
             return state;
