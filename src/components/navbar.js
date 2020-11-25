@@ -132,6 +132,7 @@ class navbar extends Component {
                         </div>
                         <div className="nav-container" style={{display:changeMenuItem}}>
                             <Button color="secondary" component={Link} to="/service"><h4>Services</h4></Button>
+                            <Button color="secondary" component={Link} to="/about"><h4>About</h4></Button>
                             <Button color="secondary">
                                 <h4>
                                     <div className="spwidget-button-wrapper">
@@ -149,7 +150,6 @@ class navbar extends Component {
                                     </div>
                                 </h4>
                             </Button>
-                            <Button color="secondary" component={Link} to="/about"><h4>About</h4></Button>
                             <Feedback/>
                             {authenticated ? (
                                     <div className="nav-container-auth" style={{right:changeMenuAuth,position:changeAuthPosition}}>
