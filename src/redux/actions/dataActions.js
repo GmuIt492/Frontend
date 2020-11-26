@@ -1,4 +1,4 @@
-import { SET_POSTS,LOADING_DATA,DELETE_POST,SET_ERRORS,CLEAR_ERRORS,POSTING,LOADING_UI,SET_HEADER,HEADER,SET_HOURS } from '../types';
+import { SET_POSTS,LOADING_DATA,DELETE_POST,SET_ERRORS,CLEAR_ERRORS,POSTING,LOADING_UI,SET_HEADER,HEADER,DELETE_HEADER,SET_HOURS } from '../types';
 import axios from 'axios';
 
 //get all posts
@@ -41,8 +41,8 @@ export const feedbackAction = (newFeedback) => (dispatch) => {
         })
 }
 
-//delete a post
-export const deletePost = (feedbackId) => (dispatch) => {
+//delete a feedback
+export const deleteFeedback = (feedbackId) => (dispatch) => {
     axios.delete(`/feedback/${feedbackId}`)
         .then(() => {
             dispatch({ type: DELETE_POST, payload: feedbackId})
@@ -81,6 +81,7 @@ export const headerNotifAction = (newHeader) => (dispatch) => {
             dispatch({
                 type: CLEAR_ERRORS
             })
+            alert("Home Page Notification Created / Updated");
         })
         .catch((error) => {
             dispatch({
@@ -88,6 +89,18 @@ export const headerNotifAction = (newHeader) => (dispatch) => {
                 payload: error.response.data
             })
         })
+}
+
+//delete all header notifications
+export const deleteHeaderNotifAction = () => (dispatch) => {
+    axios.delete(`/header`)
+        .then(() => {
+            dispatch({
+                type: DELETE_HEADER
+            })
+            alert("Home Page Notification Deleted");
+        })
+        .catch((error) => console.log(error))
 }
 
 //get hours

@@ -16,7 +16,7 @@ import Post from '../components/post';
 
 //redux components
 import { connect } from 'react-redux';
-import { headerNotifAction,getFeedbacks } from '../redux/actions/dataActions';
+import { headerNotifAction,deleteHeaderNotifAction,getFeedbacks } from '../redux/actions/dataActions';
 
 const styles = {
     submitButton: {
@@ -63,10 +63,15 @@ class admin extends Component {
         this.setState({ [event.target.name]: event.target.value });
     }
 
+    //create / update header notification
     handleHeaderNotif = (event) => {
         event.preventDefault();
         this.props.headerNotifAction({ body: this.state.body });
-        alert("Home Page Notification Updated");
+    }
+
+    //delete header notification
+    handleHeaderNotifDelete = (event) => {
+        this.props.deleteHeaderNotifAction();
     }
 
     //render admin
@@ -115,7 +120,19 @@ class admin extends Component {
                                                 color="primary"
                                                 className={classes.submitButton} disabled={loading}
                                             >
-                                                <h4>Create Notifcation</h4>
+                                                <h4>Create / Update</h4>
+                                                {loading && (
+                                                    <CircularProgress size={30} className={classes.progressSpinner}/>
+                                                )}
+                                            </Button>
+                                            &nbsp;&nbsp;
+                                            <Button
+                                                variant="contained"
+                                                color="primary"
+                                                className={classes.submitButton} disabled={loading}
+                                                onClick={this.handleHeaderNotifDelete}
+                                            >
+                                                <h4>Delete</h4>
                                                 {loading && (
                                                     <CircularProgress size={30} className={classes.progressSpinner}/>
                                                 )}
@@ -155,6 +172,7 @@ class admin extends Component {
 //checks prop types for posts
 admin.propTypes = {
     headerNotifAction: PropTypes.func.isRequired,
+    deleteHeaderNotifAction: PropTypes.func.isRequired,
     getFeedbacks: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
     UI: PropTypes.object.isRequired
@@ -169,6 +187,7 @@ const mapStateToProps = (state) => ({
 //actions used
 const mapActionsToProps = {
     headerNotifAction,
+    deleteHeaderNotifAction,
     getFeedbacks,
 }
 

@@ -1,4 +1,4 @@
-import { SET_POSTS,LOADING_DATA,POSTING,DELETE_POST,SET_HEADER,HEADER,SET_HOURS } from '../types';
+import { SET_POSTS,LOADING_DATA,POSTING,DELETE_POST,SET_HEADER,HEADER,DELETE_HEADER,SET_HOURS } from '../types';
 
 const initialState = {
     posts: [],
@@ -52,6 +52,12 @@ export default function(state = initialState,action) {
                     action.payload,
                     ...state.header
                 ]
+            }
+        //delete all header notifications
+        case DELETE_HEADER:
+            state.header = [];
+            return {
+                ...state
             }
         //set hours w/ payload
         case SET_HOURS:
