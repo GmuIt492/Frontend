@@ -47,25 +47,26 @@ class admin extends Component {
     }
 
     //listen for edit change
-    componentWillReceiveProps(nextProps){
-        if(nextProps.UI.errors){
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.UI.errors) {
             this.setState({
                 errors: nextProps.UI.errors
             });
         };
-        if(!nextProps.UI.errors && !nextProps.UI.loading){
+        if (!nextProps.UI.errors && !nextProps.UI.loading) {
             this.setState({ body: '' });
-        }
+        };
     };
 
     //on edit content change
     handleChange = (event) => {
-        this.setState({ [event.target.name]: event.target.value })
+        this.setState({ [event.target.name]: event.target.value });
     }
 
     handleHeaderNotif = (event) => {
         event.preventDefault();
-        this.props.headerNotifAction({ body: this.state.body })
+        this.props.headerNotifAction({ body: this.state.body });
+        alert("Home Page Notification Updated");
     }
 
     //render admin
@@ -75,10 +76,7 @@ class admin extends Component {
 
         //initialize
         const { errors } = this.state;
-        const {
-            classes,
-            UI: { loading }
-        } = this.props;
+        const { classes,UI: { loading } } = this.props;
 
         //checks if feedback exist and loaded
         let recentPostMarkup = <p>Loading...</p>;

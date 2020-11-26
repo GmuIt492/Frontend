@@ -41,16 +41,16 @@ class feedback extends Component{
     };
 
     //listen for feedback change
-    componentWillReceiveProps(nextProps){
-        if(nextProps.UI.errors){
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.UI.errors) {
             this.setState({
                 errors: nextProps.UI.errors
             });
         };
-        if(!nextProps.UI.errors && !nextProps.UI.loading){
+        if (!nextProps.UI.errors && !nextProps.UI.loading) {
             this.setState({ body: '' });
             this.handleClose();
-        }
+        };
     };
 
     //on feedback popup open
@@ -60,22 +60,22 @@ class feedback extends Component{
 
     //on feedback popup close
     handleClose = () => {
-        this.setState({ open: false, errors:{} })
+        this.setState({ open: false, errors:{} });
     };
 
     //on feedback content change
     handleChange = (event) => {
-        this.setState({ [event.target.name]: event.target.value })
+        this.setState({ [event.target.name]: event.target.value });
     }
 
     //on feedback content submit
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.feedbackAction({ body: this.state.body })
+        this.props.feedbackAction({ body: this.state.body });
     }
 
     //render feedback popup
-    render(){
+    render() {
         const { errors } = this.state;
         const {
             classes,
