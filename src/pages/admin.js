@@ -113,18 +113,20 @@ class admin extends Component {
                                                 multiline
                                                 rows="4"
                                                 placeholder="Everyday Eyecare Office Hours On<br/>Friday, January 1, 2021<br/> will be from 10am to 4pm est"
-                                                error={errors.body ? true : false}
-                                                helperText={errors.body}
+                                                // error={errors.body ? true : false}
+                                                // helperText={errors.body}
                                                 className={classes.textField}
                                                 onChange={this.handleChange}
                                                 fullWidth
+                                                required
                                             />
                                             <br/><br/>
                                             <Button
                                                 type="submit"
                                                 variant="contained"
                                                 color="primary"
-                                                className={classes.submitButton} disabled={loading}
+                                                className={classes.submitButton}
+                                                // disabled={loading}
                                             >
                                                 <h4>Create / Update</h4>
                                                 {loading && (
@@ -135,13 +137,14 @@ class admin extends Component {
                                             <Button
                                                 variant="contained"
                                                 color="primary"
-                                                className={classes.submitButton} disabled={loading}
+                                                className={classes.submitButton}
+                                                // disabled={loading}
                                                 onClick={this.handleHeaderNotifDelete}
                                             >
                                                 <h4>Delete</h4>
-                                                {loading && (
+                                                {/* {loading && (
                                                     <CircularProgress size={30} className={classes.progressSpinner}/>
-                                                )}
+                                                )} */}
                                             </Button>
                                         </form>
                                     </Typography>
@@ -155,30 +158,32 @@ class admin extends Component {
                                         Contact: Hours Of Operation
                                     </Typography>
                                     <Typography variant="body2" component="div">
-                                    <form onSubmit={this.handleHoursOfOp}>
+                                        <form onSubmit={this.handleHoursOfOp}>
                                             <TextField
                                                 name="body"
                                                 type="text"
                                                 multiline
                                                 rows="4"
                                                 placeholder="Monday - Friday: 10am - 5pm est<br/>Saturday - Sunday: Closed"
-                                                error={errors.body ? true : false}
-                                                helperText={errors.body}
+                                                // error={errors.body ? true : false}
+                                                // helperText={errors.body}
                                                 className={classes.textField}
                                                 onChange={this.handleChange}
                                                 fullWidth
+                                                required
                                             />
                                             <br/><br/>
                                             <Button
                                                 type="submit"
                                                 variant="contained"
                                                 color="primary"
-                                                className={classes.submitButton} disabled={loading}
+                                                className={classes.submitButton}
+                                                // disabled={loading}
                                             >
                                                 <h4>Update</h4>
-                                                {loading && (
+                                                {/* {loading && (
                                                     <CircularProgress size={30} className={classes.progressSpinner}/>
-                                                )}
+                                                )} */}
                                             </Button>
                                         </form>
                                     </Typography>
