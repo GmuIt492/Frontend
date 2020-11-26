@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import Button from '@material-ui/core/Button'
 
 //components
+import HeaderNotif from '../components/headerNotif'
 import Insurance from '../components/insurance'
 import GoogleMapApi from '../components/googleMapApi'
 
@@ -12,6 +13,7 @@ class home extends Component {
     render() {
         return (
             <div className="homepage">
+                <HeaderNotif/>
                 <div className="welcome">
                     <h1 className="welcome-header">Welcome To Everyday Eyecare</h1>
                     <p>

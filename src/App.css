@@ -87,6 +87,11 @@ a {
     position: relative;
     color: #1b1b1b;
 }
+.header-notif {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0,0,0,.2);
+}
 .welcome-header {
     text-align: center;
 }
