@@ -98,7 +98,7 @@ class feedback extends Component{
                     >
                         <CloseIcon/>
                     </Button>
-                    <h3 className="feedbackTitle">Leave An Opinion Or Anything About Your Experience!</h3>
+                    <h3 className="feedback-title">Leave An Opinion Or Anything About Your Experience!</h3>
                     <DialogContent>
                         <form onSubmit={this.handleSubmit}>
                             <TextField

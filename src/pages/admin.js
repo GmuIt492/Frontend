@@ -16,7 +16,7 @@ import Post from '../components/post';
 
 //redux components
 import { connect } from 'react-redux';
-import { getFeedbacks } from '../redux/actions/dataActions';
+import { headerNotifAction,getFeedbacks } from '../redux/actions/dataActions';
 
 const styles = {
     submitButton: {
@@ -46,22 +46,45 @@ class admin extends Component {
         this.props.getFeedbacks();
     }
 
+    //listen for edit change
+    componentWillReceiveProps(nextProps){
+        if(nextProps.UI.errors){
+            this.setState({
+                errors: nextProps.UI.errors
+            });
+        };
+        if(!nextProps.UI.errors && !nextProps.UI.loading){
+            this.setState({ body: '' });
+        }
+    };
+
+    //on edit content change
+    handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value })
+    }
+
+    handleHeaderNotif = (event) => {
+        event.preventDefault();
+        this.props.headerNotifAction({ body: this.state.body })
+    }
+
     //render admin
     render() {
         //get feedback array
-        const{ posts,loading } = this.props.data;
-
-        //checks if feedback exist and loaded
-        let recentPostMarkup = !loading ? (
-            //renders all post from Post component
-            posts.map((post) => <Post key={post.feedbackId} post={post}/>)
-        ) : <p>Loading...</p>
+        const{ posts } = this.props.data;
 
         //initialize
         const { errors } = this.state;
         const {
-            classes
+            classes,
+            UI: { loading }
         } = this.props;
+
+        //checks if feedback exist and loaded
+        let recentPostMarkup = <p>Loading...</p>;
+        if (typeof posts !== 'undefined' && posts.length> 0) {
+            recentPostMarkup = posts.map((post) => <Post key={post.feedbackId} post={post}/>);
+        }
         return (
             <>
                 <div className="admin">
@@ -73,14 +96,14 @@ class admin extends Component {
                                     <Typography variant="h5" component="h2">
                                         Home: Notification
                                     </Typography>
-                                    <Typography variant="body2" component="p">
-                                        <form onSubmit={this.handleSubmit}>
+                                    <Typography variant="body2" component="div">
+                                        <form onSubmit={this.handleHeaderNotif}>
                                             <TextField
                                                 name="body"
                                                 type="text"
                                                 multiline
                                                 rows="4"
-                                                placeholder="Everyday Eyecare Is The Best!"
+                                                placeholder="Everyday Eyecare Office Hours On Friday, January 1, 2021 will be from 10am to 4pm est"
                                                 error={errors.body ? true : false}
                                                 helperText={errors.body}
                                                 className={classes.textField}
@@ -94,7 +117,7 @@ class admin extends Component {
                                                 color="primary"
                                                 className={classes.submitButton} disabled={loading}
                                             >
-                                                <h4>Send Feedback</h4>
+                                                <h4>Create Notifcation</h4>
                                                 {loading && (
                                                     <CircularProgress size={30} className={classes.progressSpinner}/>
                                                 )}
@@ -110,7 +133,7 @@ class admin extends Component {
                                     <Typography variant="h5" component="h2">
                                         Contact: Hours Of Operation
                                     </Typography>
-                                    <Typography variant="body2" component="p">
+                                    <Typography variant="body2" component="div">
                                         Phone: <a href="tel:7037642015">703.764.2015</a>
                                     </Typography>
                                 </CardContent>
@@ -133,18 +156,22 @@ class admin extends Component {
 
 //checks prop types for posts
 admin.propTypes = {
+    headerNotifAction: PropTypes.func.isRequired,
     getFeedbacks: PropTypes.func.isRequired,
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    UI: PropTypes.object.isRequired
 }
 
 //map post state to global props
 const mapStateToProps = (state) => ({
-    data: state.data
+    data: state.data,
+    UI: state.UI
 });
 
 //actions used
 const mapActionsToProps = {
-    getFeedbacks
+    headerNotifAction,
+    getFeedbacks,
 }
 
 export default connect(mapStateToProps,mapActionsToProps)(withStyles(styles)(admin));

@@ -17,4 +17,5 @@ export const DELETE_POST = 'DELETE_POST';
 export const POSTING = 'POSTING';
 
 export const SET_HEADER = 'SET_HEADER';
+export const HEADER = 'HEADER';
 export const SET_HOURS = 'SET_HOURS';

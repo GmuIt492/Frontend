@@ -1,4 +1,4 @@
-import { SET_POSTS,LOADING_DATA,DELETE_POST,SET_ERRORS,CLEAR_ERRORS,POSTING,LOADING_UI,SET_HEADER,SET_HOURS } from '../types';
+import { SET_POSTS,LOADING_DATA,DELETE_POST,SET_ERRORS,CLEAR_ERRORS,POSTING,LOADING_UI,SET_HEADER,HEADER,SET_HOURS } from '../types';
 import axios from 'axios';
 
 //get all posts
@@ -66,6 +66,28 @@ export const getHeaderNotif = () => (dispatch) => {
             payload: null
         })
     })
+}
+
+//create header notification
+export const headerNotifAction = (newHeader) => (dispatch) => {
+    // console.log(newHeader);
+    dispatch({ type: LOADING_UI});
+    axios.post('/header',newHeader)
+        .then((result) => {
+            dispatch({
+                type: HEADER,
+                payload: result.data
+            });
+            dispatch({
+                type: CLEAR_ERRORS
+            })
+        })
+        .catch((error) => {
+            dispatch({
+                type: SET_ERRORS,
+                payload: error.response.data
+            })
+        })
 }
 
 //get hours
