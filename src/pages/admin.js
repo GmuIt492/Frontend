@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
+
+//material ui components
+import Grid from '@material-ui/core/Grid';
 
 //import components
 import Post from '../components/post';
@@ -21,7 +23,7 @@ class admin extends Component {
         //checks if posts exist and loaded
         let recentPostMarkup = !loading ? (
             //renders all post from Post component
-            posts.map((post) => <Post key={post.postId} post={post}/>)
+            posts.map((post) => <Post key={post.feedbackId} post={post}/>)
         ) : <p>Loading...</p>
         return (
             <>

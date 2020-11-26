@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 //material ui components
 import Grid from '@material-ui/core/Grid';
@@ -6,9 +7,23 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
+//redux components
+import { connect } from 'react-redux';
+import { getHours } from '../redux/actions/dataActions'; 
+
 class contact extends Component {
+    //get hours
+    componentDidMount() {
+        this.props.getHours();
+    }
+
     //render contact page
     render() {
+        const{ hours } = this.props.data;
+        var hoursMarkup = 'Loading...'
+        if (typeof hours !== 'undefined') {
+            hoursMarkup = hours[0].body;
+        }
         return (
             <div className="contact">
                 <p>Customer Service is our passion. It is what we do. It is how we make decisions. We constantly strive to exceed expectations. Everyday Eyecare will pleasantly take care of you and your vision needs. Your experience with Everyday Eyecare is our top priority. To that end, we would be delighted to hear from you. You can contact us using any of the following methods:</p>
@@ -59,7 +74,7 @@ class contact extends Component {
                                     Hours of Operation
                                 </Typography>
                                 <Typography variant="body2" component="p">
-                                    Monday - Friday: 10am - 5pm est
+                                    <span dangerouslySetInnerHTML={{ __html: hoursMarkup }}></span>
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -70,4 +85,20 @@ class contact extends Component {
     }
 }
 
-export default contact
+//checks prop types for posts
+contact.propTypes = {
+    getHours: PropTypes.func.isRequired,
+    data: PropTypes.object.isRequired
+}
+
+//map post state to global props
+const mapStateToProps = (state) => ({
+    data: state.data
+});
+
+//actions used
+const mapActionsToProps = {
+    getHours
+}
+
+export default connect(mapStateToProps,mapActionsToProps)(contact);

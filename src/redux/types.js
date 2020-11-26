@@ -15,3 +15,5 @@ export const SET_POSTS = 'SET_POSTS';
 export const SET_POST = 'SET_POST';
 export const DELETE_POST = 'DELETE_POST';
 export const POSTING = 'POSTING';
+
+export const SET_HOURS = 'SET_HOURS';

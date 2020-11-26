@@ -39,7 +39,7 @@ class post extends Component {
                 body,
                 createdAt,
                 userHandle
-                // postId
+                // feedbackId
             }
          } = this.props;
         return (
