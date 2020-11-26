@@ -3,6 +3,7 @@ import { SET_POSTS,LOADING_DATA,POSTING,DELETE_POST,SET_HEADER,HEADER,SET_HOURS 
 const initialState = {
     posts: [],
     post: {},
+    header: [],
     loading: false
 }
 
@@ -47,9 +48,9 @@ export default function(state = initialState,action) {
         case HEADER:
             return {
                 ...state,
-                posts: [
+                header: [
                     action.payload,
-                    ...state.posts
+                    ...state.header
                 ]
             }
         //set hours w/ payload
