@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 import relatativeTime from 'dayjs/plugin/relativeTime';
 import PropTypes from 'prop-types';
@@ -37,8 +36,7 @@ class post extends Component {
         const { classes,
             post:{
                 body,
-                createdAt,
-                userHandle
+                createdAt
                 // feedbackId
             }
          } = this.props;
@@ -46,13 +44,6 @@ class post extends Component {
             //card rendering
             <Card className={classes.card}>
                 <CardContent className={classes.content}>
-                    <Typography
-                        variant="h5"
-                        component={Link}
-                        to={`/users/${userHandle}`}
-                        color="primary">
-                        {userHandle}
-                    </Typography>
                     <Typography
                         variant="body2"
                         color="textSecondary">
@@ -70,14 +61,12 @@ class post extends Component {
 
 //checks prop types for posts
 post.propTypes = {
-    user: PropTypes.object.isRequired,
     post: PropTypes.object.isRequired,
     classes: PropTypes.object.isRequired
 }
 
 //map post state to global props
 const mapStateToProps = (state) => ({
-    user: state.user
 });
 
 export default connect(mapStateToProps)(withStyles(styles)(post));

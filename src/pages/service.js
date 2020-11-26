@@ -22,12 +22,12 @@ class service extends Component {
         };
         return (
             <div className="service">
-                <p><Typography>
+                <Typography>
                     Everyday Eyecare provides you with an experienced and comprehensive approach to eye care in a comfortable and caring environment. 
                     We offer a wide range of services that go beyond what you would expect from a conventional optometric practice. 
                     Listed below are some of the most common products and services that Everyday Eyecare offers to our patients. 
                     If you don't see the information you are looking for here, please contact the office for assistance.
-                </Typography></p>
+                </Typography>
 
             {/* Pediatric and Family Eye Care */}
                 <Accordion expanded={this.state.expanded === 'pediatric'} onChange={handleChange('pediatric')}>

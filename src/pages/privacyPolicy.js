@@ -22,10 +22,10 @@ class privacyPolicy extends Component {
         };
         return (
             <div className="privacyPolicy">
-                <p><Typography>
+                <Typography>
                     This notice describes how medical information about you may be used and disclosed and 
                     how you can get access to this information.  Please review it carefully.
-                </Typography></p>
+                </Typography>
 
             {/* Right to Notice */}
                 <Accordion expanded={this.state.expanded === 'notice'} onChange={handleChange('notice')}>

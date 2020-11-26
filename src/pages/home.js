@@ -9,6 +9,14 @@ import Insurance from '../components/insurance'
 import GoogleMapApi from '../components/googleMapApi'
 
 class home extends Component {
+    //import widget script
+    componentDidMount() {
+        const script = document.createElement("script");
+        script.src = "https://widget-cdn.simplepractice.com/assets/integration-1.0.js";
+        script.async = true;
+        document.body.appendChild(script);
+    }
+
     //render homepage
     render() {
         return (
