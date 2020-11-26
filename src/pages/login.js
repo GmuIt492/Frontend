@@ -43,7 +43,7 @@ class login extends Component {
     //default fields
     constructor() {
         super();
-        this.state ={
+        this.state = {
             email: '',
             password: '',
             errors: {}
@@ -57,7 +57,7 @@ class login extends Component {
         }
     }
 
-    //redirect after submit
+    //redirect after authentication on submit
     handleSubmit = (event) => {
         event.preventDefault();
         //login fields for userData object
@@ -67,9 +67,6 @@ class login extends Component {
         };
         //logs in and returns token
         this.props.loginUser(userData);
-
-        //actual redirection
-        this.props.history.go(-1);
     }
 
     //targets form field and allows change of target value
@@ -83,8 +80,14 @@ class login extends Component {
     render() {
         //bring prop styles
         const { classes,UI: { loading } } = this.props;
+
         //bring errors and load state
         const { errors} = this.state;
+
+        //actual redirection
+        if (this.props.user.authenticated === true) {
+            this.props.history.go(-1);
+        }
         return (
             <div className="login">
                 <Grid container className={classes.form}>

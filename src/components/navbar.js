@@ -154,7 +154,7 @@ class navbar extends Component {
                             {authenticated ? (
                                     <div className="nav-container-auth" style={{right:changeMenuAuth,position:changeAuthPosition}}>
                                         <Button color="secondary" component={Link} to="/admin"><h4>Admin</h4></Button>
-                                        <Button color="secondary" component={Link} to="/" onClick={this.handleLogout}><h4>Logout</h4></Button>
+                                        <Button color="secondary" component={Link} onClick={this.handleLogout}><h4>Logout</h4></Button>
                                     </div>
                                 )
                                 : (<></>)
