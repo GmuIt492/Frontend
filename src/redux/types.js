@@ -20,3 +20,4 @@ export const SET_HEADER = 'SET_HEADER';
 export const HEADER = 'HEADER';
 export const DELETE_HEADER = 'DELETE_HEADER';
 export const SET_HOURS = 'SET_HOURS';
+export const HOURS = 'HOURS';

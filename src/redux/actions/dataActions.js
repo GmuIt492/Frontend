@@ -1,4 +1,4 @@
-import { SET_POSTS,LOADING_DATA,DELETE_POST,SET_ERRORS,CLEAR_ERRORS,POSTING,LOADING_UI,SET_HEADER,HEADER,DELETE_HEADER,SET_HOURS } from '../types';
+import { SET_POSTS,LOADING_DATA,DELETE_POST,SET_ERRORS,CLEAR_ERRORS,POSTING,LOADING_UI,SET_HEADER,HEADER,DELETE_HEADER,SET_HOURS,HOURS } from '../types';
 import axios from 'axios';
 
 //get all posts
@@ -103,7 +103,7 @@ export const deleteHeaderNotifAction = () => (dispatch) => {
         .catch((error) => console.log(error))
 }
 
-//get hours
+//get hours of operation
 export const getHours = () => (dispatch) => {
     dispatch({ type: LOADING_DATA });
     axios.get('/hour')
@@ -119,4 +119,27 @@ export const getHours = () => (dispatch) => {
             payload: null
         })
     })
+}
+
+//create hours of operation
+export const hoursAction = (newHours) => (dispatch) => {
+    // console.log(newHeader);
+    dispatch({ type: LOADING_UI});
+    axios.post('/hour',newHours)
+        .then((result) => {
+            dispatch({
+                type: HOURS,
+                payload: result.data
+            });
+            dispatch({
+                type: CLEAR_ERRORS
+            })
+            alert("Contact Page Hours Of Operation Updated");
+        })
+        .catch((error) => {
+            dispatch({
+                type: SET_ERRORS,
+                payload: error.response.data
+            })
+        })
 }

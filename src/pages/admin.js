@@ -16,7 +16,7 @@ import Post from '../components/post';
 
 //redux components
 import { connect } from 'react-redux';
-import { headerNotifAction,deleteHeaderNotifAction,getFeedbacks } from '../redux/actions/dataActions';
+import { headerNotifAction,deleteHeaderNotifAction,hoursAction,getFeedbacks } from '../redux/actions/dataActions';
 
 const styles = {
     submitButton: {
@@ -74,6 +74,12 @@ class admin extends Component {
         this.props.deleteHeaderNotifAction();
     }
 
+    //update hours of operation
+    handleHoursOfOp = (event) => {
+        event.preventDefault();
+        this.props.hoursAction({ body: this.state.body });
+    }
+
     //render admin
     render() {
         //get feedback array
@@ -106,7 +112,7 @@ class admin extends Component {
                                                 type="text"
                                                 multiline
                                                 rows="4"
-                                                placeholder="Everyday Eyecare Office Hours On Friday, January 1, 2021 will be from 10am to 4pm est"
+                                                placeholder="Everyday Eyecare Office Hours On<br/>Friday, January 1, 2021<br/> will be from 10am to 4pm est"
                                                 error={errors.body ? true : false}
                                                 helperText={errors.body}
                                                 className={classes.textField}
@@ -149,7 +155,32 @@ class admin extends Component {
                                         Contact: Hours Of Operation
                                     </Typography>
                                     <Typography variant="body2" component="div">
-                                        Phone: <a href="tel:7037642015">703.764.2015</a>
+                                    <form onSubmit={this.handleHoursOfOp}>
+                                            <TextField
+                                                name="body"
+                                                type="text"
+                                                multiline
+                                                rows="4"
+                                                placeholder="Monday - Friday: 10am - 5pm est<br/>Saturday - Sunday: Closed"
+                                                error={errors.body ? true : false}
+                                                helperText={errors.body}
+                                                className={classes.textField}
+                                                onChange={this.handleChange}
+                                                fullWidth
+                                            />
+                                            <br/><br/>
+                                            <Button
+                                                type="submit"
+                                                variant="contained"
+                                                color="primary"
+                                                className={classes.submitButton} disabled={loading}
+                                            >
+                                                <h4>Update</h4>
+                                                {loading && (
+                                                    <CircularProgress size={30} className={classes.progressSpinner}/>
+                                                )}
+                                            </Button>
+                                        </form>
                                     </Typography>
                                 </CardContent>
                             </Card>
@@ -173,6 +204,7 @@ class admin extends Component {
 admin.propTypes = {
     headerNotifAction: PropTypes.func.isRequired,
     deleteHeaderNotifAction: PropTypes.func.isRequired,
+    hoursAction: PropTypes.func.isRequired,
     getFeedbacks: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
     UI: PropTypes.object.isRequired
@@ -188,6 +220,7 @@ const mapStateToProps = (state) => ({
 const mapActionsToProps = {
     headerNotifAction,
     deleteHeaderNotifAction,
+    hoursAction,
     getFeedbacks,
 }
 

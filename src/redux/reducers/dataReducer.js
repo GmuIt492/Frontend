@@ -1,9 +1,10 @@
-import { SET_POSTS,LOADING_DATA,POSTING,DELETE_POST,SET_HEADER,HEADER,DELETE_HEADER,SET_HOURS } from '../types';
+import { SET_POSTS,LOADING_DATA,POSTING,DELETE_POST,SET_HEADER,HEADER,DELETE_HEADER,SET_HOURS,HOURS } from '../types';
 
 const initialState = {
     posts: [],
     post: {},
     header: [],
+    hours: [],
     loading: false
 }
 
@@ -65,6 +66,15 @@ export default function(state = initialState,action) {
                 ...state,
                 hours: action.payload,
                 loading: false
+            }
+        //create hours w/ payload
+        case HOURS:
+            return {
+                ...state,
+                hours: [
+                    action.payload,
+                    ...state.hours
+                ]
             }
         default:
             return state;
