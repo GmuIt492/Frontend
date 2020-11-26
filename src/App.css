@@ -43,7 +43,12 @@ a {
 .navbar:hover {
     background-color: #1b1b1b;
 }
-.feedbackTitle {
+.admin-title {
+    text-align: center;
+}
+.edit-card {
+    margin: 10px;
+    height: 200px;
     text-align: center;
 }
 .scroll-up-icon {
