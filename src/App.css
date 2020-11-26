@@ -97,6 +97,13 @@ a {
     padding: 10px;
     width: 80%;
 }
+.schedule {
+    margin: auto;
+    text-align: center;
+    position: relative;
+    padding: 10px;
+    width: 80%;
+}
 .insurance {
     margin: auto;
     text-align: center;

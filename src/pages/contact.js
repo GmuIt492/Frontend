@@ -19,10 +19,18 @@ class contact extends Component {
 
     //render contact page
     render() {
+        //initialize hours of operation
+        var hoursMarkup = 'Loading...';
+
+        //get hours array
         const{ hours } = this.props.data;
-        var hoursMarkup = 'Loading...'
-        if (typeof hours !== 'undefined') {
+
+        //process hours of operation string
+        if (typeof hours !== 'undefined' && hours.length> 0) {
             hoursMarkup = hours[0].body;
+        }
+        else {
+            hoursMarkup = 'Unavailable';
         }
         return (
             <div className="contact">
