@@ -43,7 +43,7 @@ const theme = createMuiTheme(themeFile);
 
 //checks login status
 const token = localStorage.FBIdToken;
-if(token) {
+if(token && token != 'Bearer ') {
     //decode bearer token
     const decodedToken = jwtDecode(token);
     //check if token expired

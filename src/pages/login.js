@@ -49,6 +49,7 @@ class login extends Component {
         this.state = {
             email: '',
             password: '',
+            verifyCode: '',
             errors: {}
         }
     }
@@ -63,11 +64,13 @@ class login extends Component {
     //redirect after authentication on submit
     handleSubmit = (event) => {
         event.preventDefault();
+
         //login fields for userData object
         const userData = {
             email: this.state.email,
             password: this.state.password
         };
+        
         //logs in and returns success
         this.props.loginUser(userData);
     }
@@ -75,11 +78,13 @@ class login extends Component {
     //check verification code
     handleVerify = (event) => {
         event.preventDefault();
+
         //login fields for userData object
         const verifyData = {
             email: this.state.email,
             code: this.state.verifyCode
         };
+
         //logs in and returns token
         this.props.verifyUser(verifyData);
     }
@@ -166,10 +171,18 @@ class login extends Component {
                                 type="verifyCode"
                                 label="Verify Code"
                                 className={classes.textField}
+                                //display null verify code error
+                                helperText={errors.verify}
+                                error={errors.verify ? true : false}
                                 value={this.state.verifyCode}
                                 onChange={this.handleChange}
-                                fullWidth
-                                required/>
+                                fullWidth/>
+                            {errors.validCode && (
+                                //display wrong verify code error
+                                <Typography variant="body2" className={classes.customError}>
+                                    {errors.validCode}
+                                </Typography>
+                            )}
                             <Button type="submit"
                                 variant="contained"
                                 color="primary"
