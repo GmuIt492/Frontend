@@ -11,13 +11,16 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 //redux components
 import { connect } from 'react-redux';
-import { loginUser } from '../redux/actions/userActions'; 
+import { loginUser,verifyUser } from '../redux/actions/userActions'; 
 
 //css
 const styles = {
     form: {
         textAlign: 'center',
         padding: 25
+    },
+    formVerify: {
+        textAlign: 'center'
     },
     textField: {
         margin: '10px auto 10px auto'
@@ -65,8 +68,20 @@ class login extends Component {
             email: this.state.email,
             password: this.state.password
         };
-        //logs in and returns token
+        //logs in and returns success
         this.props.loginUser(userData);
+    }
+
+    //check verification code
+    handleVerify = (event) => {
+        event.preventDefault();
+        //login fields for userData object
+        const verifyData = {
+            email: this.state.email,
+            code: this.state.verifyCode
+        };
+        //logs in and returns token
+        this.props.verifyUser(verifyData);
     }
 
     //targets form field and allows change of target value
@@ -82,7 +97,7 @@ class login extends Component {
         const { classes,UI: { loading },user } = this.props;
 
         //verification code field after valid login
-        let showVerifyField = user.status === true ? true : false;
+        let showVerifyField = user.status === true ? "" : "none";
 
         //bring errors and load state
         const { errors} = this.state;
@@ -141,6 +156,35 @@ class login extends Component {
                     </Grid>
                     <Grid item sm/>
                 </Grid>
+                <Grid container className={classes.formVerify} style={{display:showVerifyField}}>
+                    <Grid item sm/>
+                    <Grid item sm>
+                        {/*login form*/}
+                        <form noValidate onSubmit={this.handleVerify}>
+                            <TextField id="verifyCode"
+                                name="verifyCode"
+                                type="verifyCode"
+                                label="Verify Code"
+                                className={classes.textField}
+                                value={this.state.verifyCode}
+                                onChange={this.handleChange}
+                                fullWidth
+                                required/>
+                            <Button type="submit"
+                                variant="contained"
+                                color="primary"
+                                className={classes.button}
+                                disabled={loading}>
+                                    Verify
+                                    {loading && (
+                                        //progress icon
+                                        <CircularProgress size={30} className={classes.progress}/>
+                                    )}
+                            </Button>
+                        </form>
+                    </Grid>
+                    <Grid item sm/>
+                </Grid>
             </div>
         );
     }
@@ -150,6 +194,7 @@ class login extends Component {
 login.propTypes = {
     classes: PropTypes.object.isRequired,
     loginUser: PropTypes.func.isRequired,
+    verifyUser: PropTypes.func.isRequired,
     user: PropTypes.object.isRequired,
     UI: PropTypes.object.isRequired
 }
@@ -162,7 +207,8 @@ const mapStateToProps = (state) => ({
 
 //actions used
 const mapActionsToProps = {
-    loginUser
+    loginUser,
+    verifyUser
 }
 
 export default connect(mapStateToProps,mapActionsToProps)(withStyles(styles)(login));

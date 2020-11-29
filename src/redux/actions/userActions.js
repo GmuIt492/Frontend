@@ -15,9 +15,26 @@ export const loginUser = (userData) => (dispatch) => {
     //process login
     axios.post('/login',userData)
     .then((result) => {
-        dispatch({ type: SET_LOGIN })
-        // setAuthorizationHeader(result.data.token);
-        // dispatch(getUserData());
+        dispatch({ type: SET_LOGIN });
+        //clear error from form
+        dispatch({ type: CLEAR_ERRORS});
+    })
+    .catch((err) => {
+        dispatch({
+            type: SET_ERRORS,
+            payload: err.response.data
+        })
+    });
+}
+
+//verify login function
+export const verifyUser = (verifyData) => (dispatch) => {
+    dispatch({ type: LOADING_UI });
+    //process login
+    axios.post('/loginVerify',verifyData)
+    .then((result) => {
+        setAuthorizationHeader(result.data.token);
+        dispatch(getUserData());
         //clear error from form
         dispatch({ type: CLEAR_ERRORS});
     })
