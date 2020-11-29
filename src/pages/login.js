@@ -78,8 +78,11 @@ class login extends Component {
 
     //render login page
     render() {
-        //bring prop styles
-        const { classes,UI: { loading } } = this.props;
+        //bring prop styles and login status from user
+        const { classes,UI: { loading },user } = this.props;
+
+        //verification code field after valid login
+        let showVerifyField = user.status === true ? true : false;
 
         //bring errors and load state
         const { errors} = this.state;

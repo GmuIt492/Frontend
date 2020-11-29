@@ -1,4 +1,5 @@
 import { SET_USER,
+    SET_LOGIN,
     SET_UNAUTHENTICATED,
     SET_AUTHENTICATED,
     LOADING_USER
@@ -8,9 +9,8 @@ import { SET_USER,
 const initialState = {
     authenticated: false,
     loading: false,
-    credentials: {},
-    likes: [],
-    notifications: []
+    status: false,
+    credentials: {}
 };
 
 //switch case user login state
@@ -31,6 +31,12 @@ export default function(state = initialState, action) {
                 authenticated: true,
                 loading: false,
                 ...action.payload
+            }
+        //set user login state
+        case SET_LOGIN:
+            return {
+                loading: false,
+                status: true
             }
         //load user details
         case LOADING_USER:

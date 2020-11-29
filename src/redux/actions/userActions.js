@@ -1,5 +1,6 @@
 import { 
     SET_USER,
+    SET_LOGIN,
     SET_ERRORS,
     LOADING_UI,
     CLEAR_ERRORS,
@@ -14,8 +15,9 @@ export const loginUser = (userData) => (dispatch) => {
     //process login
     axios.post('/login',userData)
     .then((result) => {
-        setAuthorizationHeader(result.data.token);
-        dispatch(getUserData());
+        dispatch({ type: SET_LOGIN })
+        // setAuthorizationHeader(result.data.token);
+        // dispatch(getUserData());
         //clear error from form
         dispatch({ type: CLEAR_ERRORS});
     })
