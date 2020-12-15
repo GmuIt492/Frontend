@@ -100,7 +100,7 @@ a {
     text-align: center;
     position: relative;
     padding: 10px;
-    background-color: rgba(0,0,0,.2);
+    background-color: rgba(255,255,102,.8);
 }
 .welcome-header {
     text-align: center;
@@ -111,6 +111,9 @@ a {
     position: relative;
     padding: 10px;
     width: 80%;
+}
+.appointmentButton {
+	height: 20px;
 }
 .schedule {
     margin: auto;

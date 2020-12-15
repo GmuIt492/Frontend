@@ -42,7 +42,7 @@ class home extends Component {
                 <div className="schedule">
                     <h1 className="welcome-header">Schedule An Appointment With Us Today!</h1>
                     <p>Schedule One Online&nbsp;
-                        <Button variant="contained" color="primary">
+                        <Button className="appointmentButton" variant="contained" color="primary">
                             <span>
                                 <div className="spwidget-button-wrapper">
                                     <a href="https://everydayeyecare.clientsecure.me"
@@ -60,7 +60,7 @@ class home extends Component {
                             </span>
                         </Button>
                         &nbsp;Or Call Us At&nbsp;
-                        <Button variant="contained" color="primary">
+                        <Button className="appointmentButton" variant="contained" color="primary">
                             <a href="tel:7037642015">703.764.2015</a>
                         </Button>
                     </p>
