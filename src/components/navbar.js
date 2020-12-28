@@ -120,7 +120,7 @@ class navbar extends Component {
                 <div className="navbar">
                     <AppBar position='sticky' color={changeNavBar} elevation={0}>
                         <div className="nav-logo" style={{display:changeLogo}}> 
-                            <Button color="secondary" component={Link} to="/"><h1>Everyday Eyecare</h1></Button>
+                            <Button color="secondary" component={Link} to="/"><h1 className="companyName">Everyday Eyecare</h1></Button>
                         </div>
                         <div className="menu-contact">
                             <Button color="secondary"><PhoneIcon style={{paddingRight:"5px"}}/><a href="tel:7037642015">703.764.2015</a></Button>

@@ -20,6 +20,11 @@ a {
 .app {
     background-color: rgba(249,249,249);
 }
+.companyName {
+    text-align: center;
+    line-height: normal;
+    margin: 8px;
+}
 .nav-logo {
     margin: auto;
     font-size: 15px;
